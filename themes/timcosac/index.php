@@ -97,6 +97,51 @@
 							?>
 						</div> <!-- /.col-xs-8 -->
 					</div> <!-- /.row -->
+
+					<!-- Linea de Separación  -->
+					<div class="line-separation--gray"></div>
+
+					<!-- Entradas de blog -->
+					<section class="pageInicio__blog">
+						<?php  //2 ultimas entradas al azar
+							$args = array(
+								'order'          => 'DESC',
+								'orderby'        => 'rand',
+								'post_status'    => 'publish',
+								'post_type'      => 'post',
+								'posts_per_type' => 2,
+							);
+							$blogs = get_posts( $args );
+							foreach( $blogs as $blog ) : 
+						?> 
+							<article> 
+									<div class="row">
+										<div class="col-xs-4">
+											<a href="<?= $blog->guid ?>">		
+												<figure>
+													<?php if( has_post_thumbnail( $blog->ID ) ) : ?>
+														<?= get_the_post_thumbnail( $blog->ID, 'full', array('class'=>'img-responsive') );  ?>
+													<?php endif; ?>
+												</figure>
+											</a> 
+										</div> <!-- /.col-xs-4 -->
+										<div class="col-xs-8">
+											<!-- Titulo -->
+											<h2 class="pageInicio__blog__title"> <strong>
+												<?php _e( $blog->post_title , LANG ); ?> </strong></h2>
+											<!-- Extracto -->
+											<div class="pageInicio__blog__excerpt">
+												<?php 
+													$text_excerpt = wp_trim_words( $blog->post_content , 35 , '...' );
+													echo apply_filters( 'the_content' , $text_excerpt );
+												?>
+											</div> <!-- /.pageInicio__blog__excerpt -->
+										</div> <!-- /.col-xs-8 -->
+									</div> <!-- /.row -->
+							</article> <!-- /.article -->
+						<?php endforeach; ?>
+					</section> <!-- /.pageInicio__blog -->
+
 				</section> <!-- /.pageInicio__description__content-->
 
 			</section> <!-- /.pageInicio__description -->
@@ -124,7 +169,7 @@
 						fjs.parentNode.insertBefore(js, fjs);
 					}(document, 'script', 'facebook-jssdk'));</script>
 
-					<div class="fb-page" data-href="<?= $link_facebook ?>" data-tabs="timeline" data-small-header="false"  data-width="370" data-adapt-container-width="true" data-height="370" data-hide-cover="false" data-show-facepile="true">
+					<div class="fb-page" data-href="<?= $link_facebook ?>" data-tabs="timeline" data-small-header="false"  data-width="370" data-adapt-container-width="true" data-height="430" data-hide-cover="false" data-show-facepile="true">
 					</div> <!-- /. fb-page-->
 				</section> <!-- /.container__facebook -->
 			<?php else: ?>
@@ -142,6 +187,12 @@
 	</div> <!-- /.row -->
 
 </div> <!-- /container -->
+
+<!-- Incluir Seccion banner de servicios -->
+<?php include(locate_template('partials/banner-services.php')); ?>
+
+<!-- Incluir template de carousel clientes -->
+<?php include( locate_template("partials/carousel-clientes.php") ); ?>
 
 <!-- Footer -->
 <?php get_footer(); ?>

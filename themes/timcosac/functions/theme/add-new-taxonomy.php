@@ -32,6 +32,31 @@ function create_category_taxonomy() {
     'rewrite'          => array( 'slug' => 'servicio-category' ),
   ));
 
+/* categorias clientes */
+  $labels2 = array(
+    'name'             => __( 'Categoría Cliente'),
+    'singular_name'    => __( 'Categoría Cliente'),
+    'search_items'     => __( 'Buscar Categoría Cliente'),
+    'all_items'        => __( 'Todas Categorías del Cliente' ),
+    'parent_item'      => __( 'Categoría padre del Cliente' ),
+    'parent_item_colon'=> __( 'Categoría padre:' ),
+    'edit_item'        => __( 'Editar categoría de Cliente' ), 
+    'update_item'      => __( 'Actualizar categoría de Cliente' ),
+    'add_new_item'     => __( 'Agregar nueva categoría de Cliente' ),
+    'new_item_name'    => __( 'Nuevo nombre categoría de Cliente' ),
+    'menu_name'        => __( 'Categoria Cliente' ),
+  ); 
+
+// Now register the taxonomy
+  register_taxonomy('cliente_category',array('cliente'), array(
+    'hierarchical'     => true,
+    'labels'           => $labels2,
+    'show_ui'          => true,
+    'show_admin_column'=> true,
+    'query_var'        => true,
+    'rewrite'          => array( 'slug' => 'cliente-category' ),
+  ));
+
 }
 
 

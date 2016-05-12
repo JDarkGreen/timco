@@ -9,9 +9,9 @@
 			<?php $img_banner = get_post_meta($banner->ID, 'input_img_banner_'.$banner->ID , true); 
 				if( !empty($img_banner) && $img_banner != -1 ) :
 			?>
-				<img src="<?= $img_banner ?>" alt="banner-nosotros-empresa-pbg" class="img-fluid" />
+				<img src="<?= $img_banner ?>" alt="banner-nosotros-empresa-pbg" class="img-responsive" />
 			<?php else: ?>
-				<img src="<?= IMAGES ?>/pages/banner_default.jpg" alt="banner-nosotros-empresa-pbg" class="img-fluid" />
+				<img src="http://lorempixel.com/1920/316/transport/" alt="banner-nosotros-empresa-pbg" class="img-responsive" />
 			<?php endif; ?>
 		</figure>
 

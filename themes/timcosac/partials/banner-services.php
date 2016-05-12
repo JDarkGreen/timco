@@ -1,9 +1,9 @@
 <!-- Incluir Seccion banner de servicios -->
-<section class="sectionCommonBanner__services">
-	<div class="container">
-		<!-- Texto -->
-		<p class="text-uppercase"><?php _e( 'consulte acerca de nuestros servicios' , LANG ); ?></p>
-		<!-- Boton ver más -->
-		<a href="#" class="btn__show-more text-uppercase"><?php _e( 'click aquí' , LANG ); ?></a>
-	</div><!-- /.container -->
-</section><!-- /.sectionCommonBanner__services -->
+<section class="pageWrapper__banner text-center text-uppercase">
+	<!-- Titulo -->	<h2 class="pageWrapper__banner__title">
+		<?php _e( 'consulte acerca de nuestros servicios' , LANG ); ?>
+	</h2>
+	<!-- Boton --> <a href="" class="pageWrapper__banner__btn">
+		<?php _e( 'click aquí' , LANG ); ?>
+	</a>
+</section> <!-- /.pageWrapper__banner -->

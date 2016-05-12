@@ -35,9 +35,20 @@ function timco_customize_register($wp_customize) {
 
 	####>>>>>>>>>>>> MISION Y VISIÓN >>>>>>>>>>>>>>>>>>
 	$wp_customize->add_section('timco_mision_vision', array(
-		'title' => __('Misión y Visión Empresa', LANG),
+		'title' => __('Historia Misión y Visión Empresa', LANG),
 		'description' => __('Sección Misión y Visión Empresa', LANG),
 		'priority' => 41
+	));	
+	/* HISTORIA */
+	$wp_customize->add_setting('timco_custom_settings[text_historia]', array(
+		'default' => '',
+		'type' => 'option'
+	));
+	$wp_customize->add_control('timco_custom_settings[text_historia]', array(
+		'label'    => __('Escribe el texto HISTORIA', LANG),
+		'section'  => 'timco_mision_vision',
+		'settings' => 'timco_custom_settings[text_historia]',
+		'type'     => 'textarea'
 	));	
 	/* MISION */
 	$wp_customize->add_setting('timco_custom_settings[text_mision]', array(
@@ -59,6 +70,17 @@ function timco_customize_register($wp_customize) {
 		'label'    => __('Escribe el texto VISIÓN', LANG),
 		'section'  => 'timco_mision_vision',
 		'settings' => 'timco_custom_settings[text_vision]',
+		'type'     => 'textarea'
+	));	
+	/* PILARES ESTRATÉGICOS */
+	$wp_customize->add_setting('timco_custom_settings[text_pilares]', array(
+		'default' => '',
+		'type' => 'option'
+	));
+	$wp_customize->add_control('timco_custom_settings[text_pilares]', array(
+		'label'    => __('Escribe el texto PILARES ESTRATÉGICOS', LANG),
+		'section'  => 'timco_mision_vision',
+		'settings' => 'timco_custom_settings[text_pilares]',
 		'type'     => 'textarea'
 	));
 
@@ -190,7 +212,7 @@ function timco_customize_register($wp_customize) {
 		'label'    => __('Escribe la Direccion del contacto ', LANG),
 		'section'  => 'timco_contact_address',
 		'settings' => 'timco_custom_settings[contact_address]',
-		'type'     => 'text'
+		'type'     => 'textarea'
 	));
 
 	//Customizar MAPA

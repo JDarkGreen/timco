@@ -7,10 +7,10 @@
 /**-------------------------- VARIABLES ---------------------------------------------**/
 /***************************************************************************************/
 
-$timco_black: #272727
-$timco_gray : #EBEBEB
-$timco_red  : #FF0000
-
+$timco_black    : #272727
+$timco_gray     : #EBEBEB
+$timco_red      : #FF0000
+$timco_line_gray: #D1D1D1
 
 
 /***************************************************************************************/
@@ -87,6 +87,94 @@ body,html
 	justify-content: center
 	padding        : 0 !important
 
+//Alinear contenidos
+.align-content
+	align-content: center
+	align-items  : center 
+
+//Líneas de separación
+.line-separation--gray
+	background: $timco_line_gray
+	display   : block 
+	height    : 3px 
+	margin    : 32px auto 
+	width     : 100%
+
+/***************************************************************************************/
+/**-------------------------- PAGINAS EN COMUN  -------------------------------------**/
+/***************************************************************************************/
+
+//Título Banners
+.pageCommon__banner__title
+	color    : white
+	left     : 10%
+	margin   : 0 auto
+	max-width: 1170px
+	position : absolute
+	right    : 0
+	top      : 50%
+	//strong
+	strong 
+		position: relative
+		//after
+		&:after
+			background: $timco_red
+			bottom    : -8px
+			content   : ""
+			height    : 8px 
+			left      : 0
+			position  : absolute
+			width     : 25%
+
+//Subtitulo Secciones Páginas
+.sectionCommon__subtitle
+	color      : $timco_red
+	font-size  : 25px 
+	font-weight: 700 
+	margin     : 0 auto 17px
+	position   : relative
+	//after
+	&:after
+		background: $timco_red
+		bottom    : -6px 
+		content   : ""
+		height    : 2px 
+		left      : 0
+		position  : absolute
+		width     : 80px
+
+//Variacion a blanco 
+.sectionCommon__subtitle--white
+	color: white !important
+	//after
+	&:after 
+		background: white !important
+
+//Contenedor
+.pageCommon__wrapper
+	background: $timco_gray
+	margin    : 28px auto 0
+	padding   : 33px 
+	+border-radius( 15px )
+
+//Galerías EN Común
+.js-carousel-gallery
+	.owl-controls
+		bottom    : 5px
+		left      : 0
+		position  : absolute
+		right     : 0
+		text-align: center
+		.owl-dot
+			background   : white
+			border-radius: 50%
+			display      : inline-block
+			height       : 14px
+			margin       : 0 5px
+			width        : 14px
+			//active
+			&.active
+				background: $timco_red
 
 
 /***************************************************************************************/
@@ -196,6 +284,65 @@ body,html
 	font-weight: 700 
 	margin     : 0 auto 15px
 
+//Banner Comun
+.pageWrapper__banner
+	background: $timco_red
+	margin    : 34px auto 
+	padding   : 22px 0 
+//titulo
+.pageWrapper__banner__title
+	color      : white
+	font-size  : 1.625em /*26px*/
+	font-weight: 600 
+	margin     : 0 auto 16px
+//botton
+.pageWrapper__banner__btn
+	+transform( scale(1) translateZ(0) )
+	+transition( all 500ms ease )
+	-webkit-backface-visibility: hidden
+	backface-visibility        : hidden
+	background                 : white
+	color                      : $timco_red
+	display                    : inline-block
+	font-size                  : 1.5em /*24px*/
+	font-weight                : 700
+	padding                    : 10px 25px
+	//hover 
+	&:hover 
+		+scale( 1.1 )
+		color          : $timco_red
+		text-decoration: none
+
+//Sección de Clientes ** 
+.pageWrapper__clientes
+	margin: 0 auto 40px
+	//Seccion flechas clientes
+	.arrow__cliente
+		cursor  : pointer
+		display : inline-block
+		margin  : -17px auto 0
+		position: absolute 
+		top     : 50%
+		z-index : 9999
+		//icon
+		i 
+			font-size: 34px
+			position : relative
+		//hover
+		&:hover 
+			i 
+				animation: pulse 900ms ease-in-out infinite
+
+	.arrow__cliente--prev
+		left: -1%
+	.arrow__cliente--next
+		right: -1%
+
+.pageWrapper__clientes__content 
+	padding: 0 30px 
+
+
+
 /***************************************************************************************/
 /**--------------------------  PAGINA INICIO  ---------------------------------------**/
 /***************************************************************************************/
@@ -297,6 +444,37 @@ body,html
 	padding   : 14px 25px 
 	+border-radius( 5px )
 
+	//parrafos
+	p 
+		font-size: 14px
+
+//Sección Blog
+.pageInicio__blog
+	//articulos
+	article 
+		margin: 0 auto 17px 
+		//link
+		a 
+			text-decoration: none 
+			color          : black
+		//imagen
+		figure 
+			overflow: hidden
+			img 
+				-webkit-backface-visibility: hidden
+				+transform( translateZ( 0 ) scale(1) )
+				+transition( all 700ms ease-in-out )
+			//hover 
+			&:hover 
+				img 
+					+scale( 1.3 ) 
+					+opacity( 0.8 )
+
+//Titulos del Blog
+.pageInicio__blog__title
+	font-size: 20px
+	margin   : 0 auto 16px
+
 //Seccion Facebook sobreescribir clase
 .container__facebook
 	background: $timco_black
@@ -305,3 +483,103 @@ body,html
 	padding   : 5px 7px 
 	+border-radius( 5px )
 	
+
+/***************************************************************************************/
+/**-------------------------- PÁGINA NOSOTROS  ---------------------------------------**/
+/***************************************************************************************/
+
+//Seccion
+.pageNosotros
+	//Parrafos
+	p 
+		font-size: 15px
+
+//Contenedor Mision Vision 
+.pageNosotros__aptitudes
+	background: url('../images/pages/nosotros/nosotros_timco_vision.jpg') no-repeat
+	padding   : 30px 40px 
+//Artículos
+.pageNosotros__aptitudes__item
+	color: white
+
+/***************************************************************************************/
+/**-------------------------------  MAIN FOOTER  -------------------------------------**/
+/***************************************************************************************/
+
+.mainFooter
+	background     : url('../images/footer/bg-footer.jpg') no-repeat
+	background-size: 100% 100%
+	color          : white 
+	padding        : 21px 0
+
+	//parrafos
+	p 
+		font-size: 15px
+		margin   : 0 auto 5px 
+
+	//clase agranda tamaño de fuente
+	.font-big
+		font-size: 1.5em
+
+	//clase aumente font weight
+	.font-weight-600
+		font-weight: 600
+
+//Contenedor flexible
+.mainFooter__content
+	align-items    : center 
+	display        : flex 
+	flex-wrap      : wrap
+	justify-content: space-between
+
+//Secciones particulares
+.mainFooter__description
+	border-right : 1px solid white
+	padding-right: 15px
+	width        : 50%
+	//span
+	span 
+		display  : block 
+		font-size: 13px
+		margin   : 32px auto 0
+	
+	//Seccion Direccion 
+	.address 
+		position: relative
+		padding : 0 0 0 20px 
+		//icon
+		i 
+			font-size: 20px
+			left     : 0 
+			position : absolute 
+			width    : 15px 
+
+.mainFooter__data
+	border-right: 1px solid white
+	padding     : 0 20px 
+	width       : 25%
+	//icons
+	i 
+		font-size : 20px 
+		margin    : 0 4px 0 0 
+		text-align: center 
+		width     : 20px
+
+.mainFooter__social
+	padding: 0 20px 
+	width  : 19%
+	//titulo
+	h2 
+		font-size: 15px
+		margin   : 0 auto
+	//Lista
+	ul 
+		list-style-type: none  
+		margin         : 7px auto 0 
+		padding        : 0 
+		li 
+			display: inline-block
+			padding: 0 3px 
+			a 
+				display  : block
+				max-width: 26px
