@@ -13,7 +13,7 @@ add_action( 'add_meta_boxes', 'add_banner_page' );
 
 function add_banner_page() {
   //add more in here as you see fit
-  $screens = array( 'page' ); 
+  $screens = array( 'page' , 'servicio' ); 
   foreach ($screens as $screen) {
   	add_meta_box(
       'attachment_banner_page', //this is the id of the box

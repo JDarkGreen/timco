@@ -6,9 +6,16 @@
 	$options = get_option('constructec_custom_settings'); 
 
 	//Conseguir el id de su pagina padre servicios
-	$parent_page  = get_page_by_title( 'Servicios' ); #var_dump($parent_page);
-	$banner       = $parent_page;
-	$banner_title = $post->post_title;
+	//$parent_page  = get_page_by_title( 'Servicios' ); #var_dump($parent_page);
+
+	$banner       = $post;
+
+	//Comprobar si el except esta vacio si no colocar como nombre el titulo de la página
+	if( !empty($post->post_excerpt) ):  
+		$banner_title = $post->post_excerpt;
+	else: 
+		$banner_title = $post->post_title;
+	endif; 
 ?>
 
 <!-- Get Header -->

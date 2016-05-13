@@ -182,7 +182,6 @@ body,html
 /***************************************************************************************/
 
 .mainHeader
-	overflow: hidden
 
 //Logo
 .logo 
@@ -214,7 +213,7 @@ body,html
 		left      : 0
 		position  : absolute
 		top       : 0
-		width     : 100em 
+		width     : 69.9vmax
 		z-index   : -1
 	//parrafo
 	p 
@@ -229,7 +228,7 @@ body,html
 
 //Navegación Principal
 .mainNav
-	padding: 13px 0 13px 25px
+	padding: 0 0 0 25px
 	//before
 	&:before
 		background: url('../images/pages/inicio/bg-menu.jpg') repeat-x
@@ -240,7 +239,7 @@ body,html
 		left      : 0 
 		position  : absolute
 		top       : 0 
-		width     : 100em
+		width     : 70.7vmax
 		z-index   : -1
 	//menu
 	ul 
@@ -255,21 +254,52 @@ body,html
 		//MENU PRINCIPAL
 		&.main-menu
 			li 
-				display: inline-block
-				padding: 0 25px
+				display : inline-block
+				padding : 0 25px
+				position: relative
 				//primer y ultimo elemento
 				&:first-child
 					padding-left : 0
 				&:last-child
 					padding-right: 0
 				a 
+					display  : block 
 					font-size: 13px
+					padding  : 15px 0 
 					+transition( all 500ms ease )
 
 				//hover u active
 				&:hover,&.current-menu-item, &.current_page_item
 					a 
 						color: $timco_red 
+					//submenu
+					ul.sub-menu
+						+opacity( 1 )
+						top    : 110%
+						z-index: 9
+
+				//SUBMENU
+				ul.sub-menu
+					background   : rgba( 0,0,0,.8 )
+					border-bottom: 4px solid white
+					border-top   : 4px solid white
+					left         : 0
+					padding      : 10% 0
+					position     : absolute
+					top          : 250%
+					z-index      : -5
+					+opacity( 0 )
+					+transition( all 800ms ease )
+
+					li 
+						padding: 0 !important
+						a 
+							color  : white
+							padding: 6px 15px 
+						//hover u active
+						&:hover,&.current-menu-item, &.current_page_item
+							a 
+								color: $timco_red
 
 /***************************************************************************************/
 /**--------------------------  WRAPPER GENERAL ---------------------------------------**/
