@@ -143,6 +143,7 @@
 													$text_excerpt = wp_trim_words( $blog->post_content , 35 , '...' );
 													echo apply_filters( 'the_content' , $text_excerpt );
 												?>
+												<a href="#" class="pageCommon__read-more"><?php _e('Leer Más...', LANG ); ?></a>
 											</div> <!-- /.pageInicio__blog__excerpt -->
 										</div> <!-- /.col-xs-8 -->
 									</div> <!-- /.row -->
