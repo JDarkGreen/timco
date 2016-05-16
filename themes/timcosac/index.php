@@ -92,6 +92,11 @@
 								$text_nosotros = $options['widget_nosotros'];
 								if( !empty( $text_nosotros ) ) :
 									echo apply_filters('the_content', $text_nosotros );
+
+								//Link de Nosotros
+							?>
+							<a href="#" class="pageCommon__read-more"><?php _e('Leer Más...', LANG ); ?></a>
+							<?php
 								else: echo "Actualizando descripción";
 								endif;
 							?>
@@ -103,6 +108,9 @@
 
 					<!-- Entradas de blog -->
 					<section class="pageInicio__blog">
+						<!-- Subtitulo --><h2 class="pageWrapper__subtitle text-uppercase">
+						<?php _e('blog timco' , LANG ); ?> </h2>
+						<!--  -->
 						<?php  //2 ultimas entradas al azar
 							$args = array(
 								'order'          => 'DESC',

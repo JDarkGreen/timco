@@ -27,7 +27,12 @@
 				
 				<div class="container">
 		    	<!-- CAPTION O INFORMACION -->
-		    	<div class="carousel-caption">
+		    	<?php  
+		    		$align_text = get_post_meta( $post->ID , 'banner_text_check' , true );
+		    		//Opciones on- off
+		    	?>
+
+		    	<div class="carousel-caption <?= $align_text == 'on' ? 'right-align' : '' ?>">
 		    		<!-- Titulo -->
 				    <h3 class="text-uppercase"><?php the_title(); ?></h3>
 				    <!-- Get the content -->
