@@ -179,6 +179,18 @@ var j = jQuery.noConflict();
 			});			
 		}
 
+		/*|----------------------------------------------------------------------|*/
+		/*|-----  GALERIAS FANCYBOX DE FLOTAS   -----|*/
+		/*|----------------------------------------------------------------------|*/
+
+		j("a.gallery-fancybox").fancybox({
+			'overlayShow'  :	false,
+			'speedIn'      :	600, 
+			'speedOut'     :	200, 
+			'transitionIn' :	'elastic',
+			'transitionOut':	'elastic',
+		});
+
 	});
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 })(jQuery);

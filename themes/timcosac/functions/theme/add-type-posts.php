@@ -52,33 +52,9 @@ function create_post_type(){
 		'menu_icon'   => 'dashicons-exerpt-view',
 	);	
 
-	/*|>>>>>>>>>>>>>>>>>>>> TRABAJOS REALIZADOS  <<<<<<<<<<<<<<<<<<<<|*/
-	
-	$labels3 = array(
-		'name'               => __('Trabajos Realizados'),
-		'singular_name'      => __('Trabajo Realizado'),
-		'add_new'            => __('Nuevo Trabajo Realizado'),
-		'add_new_item'       => __('Agregar nuevo Trabajo Realizado'),
-		'edit_item'          => __('Editar Trabajo Realizado'),
-		'view_item'          => __('Ver Trabajo Realizado'),
-		'search_items'       => __('Buscar Trabajo Realizados'),
-		'not_found'          => __('Trabajo Realizado no encontrado'),
-		'not_found_in_trash' => __('Trabajo Realizado no encontrado en la papelera'),
-	);
-
-	$args3 = array(
-		'labels'      => $labels3,
-		'has_archive' => true,
-		'public'      => true,
-		'hierachical' => false,
-		'supports'    => array('title','editor','excerpt','custom-fields','thumbnail','page-attributes'),
-		'taxonomies'  => array('post-tag','category'),
-		'menu_icon'   => 'dashicons-schedule',
-	);
-
 	/*|>>>>>>>>>>>>>>>>>>>> CLIENTES  <<<<<<<<<<<<<<<<<<<<|*/
 	
-	$labels4 = array(
+	$labels3 = array(
 		'name'               => __('Clientes'),
 		'singular_name'      => __('Cliente'),
 		'add_new'            => __('Nuevo Cliente'),
@@ -90,8 +66,8 @@ function create_post_type(){
 		'not_found_in_trash' => __('Cliente no encontrado en la papelera'),
 	);
 
-	$args4 = array(
-		'labels'      => $labels4,
+	$args3 = array(
+		'labels'      => $labels3,
 		'has_archive' => true,
 		'public'      => true,
 		'hierachical' => false,
@@ -100,22 +76,22 @@ function create_post_type(){
 		'menu_icon'   => 'dashicons-money',
 	);	
 
-	/*|>>>>>>>>>>>>>>>>>>>> GALERÍA DE IMÁGENES  <<<<<<<<<<<<<<<<<<<<|*/
+	/*|>>>>>>>>>>>>>>>>>>>> FLOTAS  <<<<<<<<<<<<<<<<<<<<|*/
 	
-	$labels5 = array(
-		'name'               => __('Galería Imágenes'),
-		'singular_name'      => __('Imagenen'),
-		'add_new'            => __('Nuevo Imagen'),
-		'add_new_item'       => __('Agregar nuevo Imagen'),
-		'edit_item'          => __('Editar Imagen'),
-		'view_item'          => __('Ver Imagen'),
-		'search_items'       => __('Buscar Imagen'),
-		'not_found'          => __('Imagen no encontrada'),
-		'not_found_in_trash' => __('Imagen no encontrada en la papelera'),
+	$labels4 = array(
+		'name'               => __('Galería Flotas'),
+		'singular_name'      => __('Flota'),
+		'add_new'            => __('Nueva Flota'),
+		'add_new_item'       => __('Agregar nueva Flota'),
+		'edit_item'          => __('Editar Flota'),
+		'view_item'          => __('Ver Flota'),
+		'search_items'       => __('Buscar Flota'),
+		'not_found'          => __('Flota no encontrada'),
+		'not_found_in_trash' => __('Flota no encontrada en la papelera'),
 	);
 
-	$args5 = array(
-		'labels'      => $labels5,
+	$args4 = array(
+		'labels'      => $labels4,
 		'has_archive' => true,
 		'public'      => true,
 		'hierachical' => false,
@@ -123,38 +99,14 @@ function create_post_type(){
 		'taxonomies'  => array('post-tag','category'),
 		'menu_icon'   => 'dashicons-index-card',
 	);
-	/*|>>>>>>>>>>>>>>>>>>>> GALERÍA DE VIDEOS  <<<<<<<<<<<<<<<<<<<<|*/
-	
-	$labels6 = array(
-		'name'               => __('Galería Videos'),
-		'singular_name'      => __('Video'),
-		'add_new'            => __('Nuevo Video'),
-		'add_new_item'       => __('Agregar nuevo Video'),
-		'edit_item'          => __('Editar Video'),
-		'view_item'          => __('Ver Video'),
-		'search_items'       => __('Buscar Video'),
-		'not_found'          => __('Video no encontrado'),
-		'not_found_in_trash' => __('Video no encontrado en la papelera'),
-	);
-
-	$args6 = array(
-		'labels'      => $labels6,
-		'has_archive' => true,
-		'public'      => true,
-		'hierachical' => false,
-		'supports'    => array('title','editor','excerpt','custom-fields','thumbnail','page-attributes'),
-		'taxonomies'  => array('post-tag','category'),
-		'menu_icon'   => 'dashicons-video-alt2',
-	);
 
 
 	/*|>>>>>>>>>>>>>>>>>>>> REGISTRAR  <<<<<<<<<<<<<<<<<<<<|*/
 	register_post_type( 'banner'   , $args  );
 	register_post_type( 'servicio' , $args2 );
-	register_post_type( 'works' , $args3 );
-	register_post_type( 'cliente' , $args4 );
-	register_post_type( 'galeria-images' , $args5 );
-	register_post_type( 'galeria-videos' , $args6 );
+	register_post_type( 'cliente' , $args3 );
+	register_post_type( 'flota' , $args4 );
+
 	
 	flush_rewrite_rules();
 }

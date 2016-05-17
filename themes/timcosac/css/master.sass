@@ -652,6 +652,71 @@ body,html
 
 
 /***************************************************************************************/
+/**------------------------------- PÁGINA FLOTA  -------------------------------------**/
+/***************************************************************************************/
+
+//Contenido - section
+.pageFlota__content
+	display        : flex 
+	flex-wrap      : wrap
+	justify-content: center 
+	
+	//artículos
+	.item-flota
+		margin  : 0 2px 2px
+		overflow: hidden
+		position: relative
+		width   : 32.9%
+		//links 
+		a.gallery-fancybox
+			color          : white 
+			display        : block 
+			position       : relative 
+			text-decoration: none
+			//before
+			&:before
+				background: rgba(0,0,0,0.3)
+				bottom    : 0
+				content   : ""
+				display   : block
+				left      : 0
+				position  : absolute
+				right     : 0
+				top       : 0
+				z-index   : 9
+		//Titulos 
+		h3 
+			font-size : 16px
+			left      : 0
+			margin    : 0 auto
+			position  : absolute
+			right     : 0
+			text-align: center
+			top       : 15px
+			z-index   : 99
+			//before
+			&:before 
+				background: $timco_red
+				bottom    : -9px
+				content   : ""
+				height    : 3px
+				left      : 0
+				margin    : 0 auto
+				position  : absolute
+				right     : 0
+				width     : 60px
+		//Image
+		img 
+			+transform( scale(1) translateZ(0) )
+			+transition( all 700ms ease )
+			backface-visibility: hidden
+		//Hover 
+		&:hover 
+			img 
+				+scale( 1.2 )
+
+
+/***************************************************************************************/
 /**-------------------------------  MAIN FOOTER  -------------------------------------**/
 /***************************************************************************************/
 
