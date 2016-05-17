@@ -30,7 +30,7 @@
 					<!-- Imagen -->
 					<?php if( has_post_thumbnail( $post->ID )) : ?>
 						<figure class="pageArticle__image">
-							<?php the_post_thumbnail('full',array('class'=>'img-fluid') ); ?>
+							<?php the_post_thumbnail('full',array('class'=>'img-responsive') ); ?>
 						</figure> <!-- /.pageArticle__image -->
 					<?php endif;?>
 
@@ -41,39 +41,10 @@
 				</article> <!-- /.pageArticle__content -->
 			</div> <!-- /.col-xs-12 col-md-8 -->
 			<div class="col-xs-12 col-md-4">
-				<aside class="pageArticle__sidebar">
-
-					<!-- Incluir las categorias de los posts -->
-					<?php include( locate_template("partials/categories-post.php") ); ?>
-
-					<!-- Facebook -->
-					<?php $link_facebook = $options['red_social_fb']; 
-						if( !empty($link_facebook) ) :
-					?>
-					<section class="pageInicio__miscelaneo__facebook">
-						<!-- Contebn -->
-						<div id="fb-root" class=""></div>
-
-						<!-- Script -->
-						<script>(function(d, s, id) {
-							var js, fjs = d.getElementsByTagName(s)[0];
-							if (d.getElementById(id)) return;
-							js = d.createElement(s); js.id = id;
-							js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.5";
-							fjs.parentNode.insertBefore(js, fjs);
-						}(document, 'script', 'facebook-jssdk'));</script>
-
-						<div class="fb-page" data-href="<?= $link_facebook ?>" data-tabs="timeline" data-small-header="false"  data-adapt-container-width="true" data-height="420" data-hide-cover="false" data-show-facepile="true">
-							<div class="fb-xfbml-parse-ignore">
-								<blockquote cite="<?= $link_facebook ?>">
-									<a href="<?= $link_facebook ?>"><?php bloginfo('name'); ?></a>
-								</blockquote>
-							</div>
-						</div>
-					</section> <!-- /.pageInicio__miscelaneo__facebook text-xs-center -->
-
-					<?php endif; ?>
-				</aside> <!-- /.pageArticle__sidebar -->
+				<aside class="pageBlog__categories">
+					<!-- Incluir template categorias -->
+					<?php include( locate_template('partials/content-category-post.php') ) ?>
+				</aside><!-- /.pageBlog__categories -->
 			</div> <!-- /.col-xs-12 col-md-4 -->
 		</div> <!--/.row -->
 	</div> <!-- /.container -->

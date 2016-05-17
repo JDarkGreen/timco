@@ -101,6 +101,12 @@ body,html
 	margin    : 32px auto 
 	width     : 100%
 
+
+//Mapa
+#canvas-map
+	height: 317px
+	width : 100%
+
 /***************************************************************************************/
 /**-------------------------- PAGINAS EN COMUN  -------------------------------------**/
 /***************************************************************************************/
@@ -724,7 +730,7 @@ body,html
 /**------------------------------- PÁGINA BLOG  -------------------------------------**/
 /***************************************************************************************/
 
-//Articulo preview
+//Articulo PREVIEW
 .pageBlog__article
 	border-bottom: 2px solid $timco_line_gray
 	padding      : 39px 0
@@ -736,7 +742,7 @@ body,html
 		padding-bottom: 0
 
 	//Imagen
-	figure
+	figure.pageArticle__figure
 		overflow: hidden
 		img 
 			+transform( scale(1.0) translateZ(0) )
@@ -765,6 +771,12 @@ body,html
 .pageBlog__article__text
 	font-size  : 14px
 	line-height: 1.3em
+
+//Articulo SINGLE 
+
+//Imagen Destacada
+.pageArticle__image
+	margin: 0 auto 30px
 	
 //Botón Leer Más
 .btn__read-more
@@ -796,10 +808,9 @@ body,html
 					color          : black 
 					text-decoration: none 
 					+transition( all 500ms ease )
-					//hover
-					&:hover
+					//hover o active
+					&:hover, &.active
 						color: $timco_red
-
 
 //Titulo Sidebar Categorias
 .pageBlog__categories__title
@@ -811,6 +822,68 @@ body,html
 	text-transform: uppercase
 	font-size     : 20px
 	font-weight   : 600
+
+/***************************************************************************************/
+/**------------------------------- PÁGINA CONTACTO -----------------------------------**/
+/***************************************************************************************/
+
+//Contenido Item
+.pageContacto__content
+	margin: 20px auto 0
+	//Parrafo de Información
+	.paragraph__info
+		span 
+			display    : inline-block 
+			font-weight: 600
+			width      : 130px
+	//Lista de Mails 
+	ul.emails_list
+		list-style-type: none
+		margin         : 0 auto 
+		padding        : 0
+		li 
+			color    : $timco_red
+			font-size: 15px
+			//span
+			span 
+				color  : black
+				display: inline-block
+				width  : 180px
+
+//Fomrulario
+.pageContacto__form
+	background: white
+	padding   : 18px
+	//Grupos e Inputs
+	.pageContacto__form__group
+		margin: 0 auto 23px
+		input, textarea
+			color      : rgba(0,0,0,.7)
+			display    : block 
+			line-height: 1em 
+			max-width  : 100%
+			outline    : none 
+			padding    : 10px
+			width      : 100%
+		//only texarea
+		textarea 
+			height    : 200px
+			max-height: 200px
+	
+	//Botón Enviar Formulario
+	.btn__send-form
+		+border-radius( 5px )
+		background : $timco_red
+		border     : none
+		color      : #fff
+		font-size  : 15px
+		line-height: 1em
+		outline    : none
+		padding    : 8px 20px
+		+transition( all 500ms ease )
+		//Hover
+		&:hover 
+			+scale( 1.2 )
 
 /***************************************************************************************/
 /**-------------------------------  MAIN FOOTER  -------------------------------------**/

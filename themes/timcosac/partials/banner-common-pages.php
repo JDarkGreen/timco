@@ -11,7 +11,7 @@
 			?>
 				<img src="<?= $img_banner ?>" alt="banner-nosotros-empresa-pbg" class="img-responsive" />
 			<?php else: ?>
-				<img src="http://placeimg.com/1920/316/any" alt="banner-nosotros-empresa-pbg" class="img-responsive" />
+				<img src="http://placekitten.com/1920/316" alt="banner-nosotros-empresa-pbg" class="img-responsive" />
 			<?php endif; ?>
 		</figure>
 

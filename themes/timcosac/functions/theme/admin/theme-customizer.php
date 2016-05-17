@@ -141,11 +141,12 @@ function timco_customize_register($wp_customize) {
 	
 	// Contact Email
 	$wp_customize->add_section('timco_contact_email', array(
-		'title' => __('Correo Contacto', LANG),
-		'description' => __('Escribe el Correo Contacto', LANG),
+		'title' => __('Seccion Correos', LANG),
+		'description' => __('Escribe el Correo Contacto Correspondiente', LANG),
 		'priority' => 37
 	));
 	
+	//Email Principal
 	$wp_customize->add_setting('timco_custom_settings[contact_email]', array(
 		'default' => '',
 		'type' => 'option'
@@ -157,6 +158,60 @@ function timco_customize_register($wp_customize) {
 		'settings' => 'timco_custom_settings[contact_email]',
 		'type'     => 'text'
 	));
+
+	//Email Gerente Comercial
+	$wp_customize->add_setting('timco_custom_settings[contact_email_gerente]', array(
+		'default' => '',
+		'type' => 'option'
+	));
+	
+	$wp_customize->add_control('timco_custom_settings[contact_email_gerente]', array(
+		'label'    => __('Email Gerente Comercial:', LANG),
+		'section'  => 'timco_contact_email',
+		'settings' => 'timco_custom_settings[contact_email_gerente]',
+		'type'     => 'text'
+	));
+
+	//Email Administración documentaria
+	$wp_customize->add_setting('timco_custom_settings[contact_email_admin_doc]', array(
+		'default' => '',
+		'type' => 'option'
+	));
+	
+	$wp_customize->add_control('timco_custom_settings[contact_email_admin_doc]', array(
+		'label'    => __('Email Admnistración Documentaria:', LANG),
+		'section'  => 'timco_contact_email',
+		'settings' => 'timco_custom_settings[contact_email_admin_doc]',
+		'type'     => 'text'
+	));
+
+	//Email Facturacion y cobranza
+	$wp_customize->add_setting('timco_custom_settings[contact_email_factura]', array(
+		'default' => '',
+		'type' => 'option'
+	));
+	
+	$wp_customize->add_control('timco_custom_settings[contact_email_factura]', array(
+		'label'    => __('Email Facturación y Cobranza:', LANG),
+		'section'  => 'timco_contact_email',
+		'settings' => 'timco_custom_settings[contact_email_factura]',
+		'type'     => 'text'
+	));
+
+
+	//Email Logística
+	$wp_customize->add_setting('timco_custom_settings[contact_email_logistica]', array(
+		'default' => '',
+		'type' => 'option'
+	));
+	
+	$wp_customize->add_control('timco_custom_settings[contact_email_logistica]', array(
+		'label'    => __('Email Logística:', LANG),
+		'section'  => 'timco_contact_email',
+		'settings' => 'timco_custom_settings[contact_email_logistica]',
+		'type'     => 'text'
+	));
+
 
 	//Customizar celular
 	$wp_customize->add_section('timco_contact_cel', array(

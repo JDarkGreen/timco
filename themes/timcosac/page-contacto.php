@@ -3,7 +3,7 @@
 <!-- Global Post -->
 <?php 
 	global $post; 
-	$options = get_option('constructec_custom_settings'); 
+	$options = get_option('timco_custom_settings'); 
 ?>
 
 <!-- Get Header -->
@@ -15,121 +15,126 @@
 	include( locate_template("partials/banner-common-pages.php") );
 ?>
 
-<!-- Contenido Central -->
-<section class="pageContacto">
-	<div class="container">
-		<div class="row">
-			<!-- Seccion de Información -->
-			<div class="col-xs-12 col-sm-5">
-				<section class="pageContacto__content">
-					<!-- Titulo -->
-					<h2 class="sectionCommon__subtitle pageEmpresa__subtitle text-uppercase">
-					<strong><?php _e( 'Constructec' , LANG ); ?></strong>
-					</h2>
-					<!-- Lista de Informacion -->
-					<ul class="pageContacto__menu-contacto">
-						<!-- Telefono -->
-						<?php $tel = $options['contact_tel']; if( !empty($tel)): ?>
-							<li><i class="fa fa-phone" aria-hidden="true"></i>
-								<?= $tel; ?>
-							</li>
-						<?php endif; ?>
-						<!-- Celular -->
-						<?php $cel = $options['contact_cel']; if( !empty($cel)): ?>
-							<li><i class="fa fa-mobile" aria-hidden="true"></i>
-								<?= $cel; ?>
-							</li>
-						<?php endif; ?>
-						<!-- Email -->
-						<?php $email = $options['contact_email']; if( !empty($email)): ?>
-							<li class="item--orange"><i class="fa fa-envelope" aria-hidden="true"></i>
-								<?= $email; ?>
-							</li>
-						<?php endif; ?>
-					</ul> <!-- /.mainFooter__menu-contacto -->					
-				</section> <!-- /.pageContacto__content -->
-				
-				<!-- Redes Sociales -->
-				<section class="pageContacto__content">
-					<!-- Titulo -->
-					<h2 class="sectionCommon__subtitle text-uppercase">
-					<strong><?php _e( 'redes sociales' , LANG ); ?></strong>
-					</h2>
-					<!-- Menu redes sociales -->
-					<ul class="pageContacto__social-link">
-						<!-- Youtube -->
-						<?php $ytube = $options['red_social_ytube']; if( !empty($ytube)): ?>
-						<li><a target="_blank" href="<?= $ytube ?>"><i class="fa fa-youtube" aria-hidden="true"></i>
-						</a></li>
-						<?php endif; ?>
-						<!-- Twitter -->
-						<?php $tw = $options['red_social_twitter']; if( !empty($tw)): ?>
-						<li><a target="_blank" href="<?= $tw ?>"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-						<?php endif; ?>
-						<!-- Facebook -->
-						<?php $fb = $options['red_social_fb']; if( !empty($fb)): ?>
-						<li><a target="_blank" href="<?= $fb ?>"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-						<?php endif; ?>
-					</ul> <!-- /.mainFooter__social-link -->					
-				</section> <!-- /.pageContacto__content pageContacto__social-link -->
-			</div> <!-- /.col-xs-12 col-sm-5 -->
+<!-- CONTENEDOR COMUN -->
+<div class="container">
+	<main class="pageCommon__wrapper pageContacto">
 
-			<!-- Seccion de Formulario -->
-			<div class="col-xs-12 col-sm-7">
-				<section class="pageContacto__form">
-					<!-- Titulo -->
-					<h2 class="sectionCommon__subtitle text-uppercase">
-					<strong><?php _e( 'nuestro formulario' , LANG ); ?></strong>
-					</h2>
-					<!-- Formulario -->
-					<form id="form-contacto" action="" class="" method="POST">
-						<div class="pageContacto__form__group">
-							<label for="input_name" class="sr-only"></label>
-							<input type="text" name="input_name" placeholder="<?php _e( 'Nombres y Apellidos', LANG ); ?>" required />
-						</div> <!-- /.pageContacto__form__group -->
-						<div class="pageContacto__form__group">
-							<label for="input_address" class="sr-only"></label>
-							<input type="text" name="input_address" placeholder="<?php _e( 'Dirección', LANG ); ?>" required />
-						</div> <!-- /.pageContacto__form__group -->
-						<div class="pageContacto__form__group">
-							<label for="input_email" class="sr-only"></label>
-							<input type="email" name="input_email" placeholder="<?php _e( 'E-mail', LANG ); ?>" data-parsley-trigger="change" required="" data-parsley-type-message="Escribe un email válido"/>
-						</div> <!-- /.pageContacto__form__group -->
-						<div class="pageContacto__form__group">
-							<label for="input_email" class="sr-only"></label>
-							<textarea name="input_consulta" id="" placeholder="<?php _e( 'Consulta', LANG ); ?>" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Necesitas más de 20 caracteres" data-parsley-validation-threshold="10"></textarea>
-						</div> <!-- /.pageContacto__form__group -->
-						<!-- Boton de enviar el formulario  -->
-						<div class="pageContacto__form__group">
-							<button id="send-form" class="btn__send-form text-uppercase">
-								<?php _e( 'enviar' , LANG ); ?>
-							</button> <!-- /.btn__send-form -->
-						</div> <!-- /.pageContacto__form__group -->
-					</form> <!-- /. -->
-				</section> <!-- /.pageContacto__form -->
-			</div> <!-- /.col-xs-12 col-sm-7 -->
+		<div class="row">
+			<div class="col-xs-6">
+				<!-- Titulo  -->  <h2 class="text-uppercase sectionCommon__subtitle"><?php _e( 'atención al cliente', LANG ); ?></h2>
+
+				<div class="clearfix"></div>
+
+				<!-- Contenido -->
+				<section class="pageContacto__content">
+
+					<!-- Ofinina Central --> 
+					<?php if( isset( $options['contact_tel'] ) && !empty( $options['contact_tel'] ) ) : ?>
+					<p class="paragraph__info"><span><?php _e('Oficina central:' , LANG ); ?></span>
+						<?= $options['contact_tel']; ?>
+					</p>
+					<?php endif; ?>
+
+					<!-- Nextel --> 
+					<?php if( isset( $options['contact_cel'] ) && !empty( $options['contact_cel'] ) ) : ?>
+					<p class="paragraph__info"><span><?php _e('Nextel:' , LANG ); ?></span>
+						<?= $options['contact_cel']; ?>
+					</p>
+					<?php endif; ?>
+					
+					<!-- Nuestras Areas -->
+					<p class="paragraph__info"><span><?php _e('Nuestras Áreas:' , LANG ); ?></span></p>
+					
+					<!-- Lista de mails -->
+					<ul class="emails_list">
+
+						<!-- Gerente -->
+						<?php if( isset( $options['contact_email_gerente'] ) && !empty( $options['contact_email_gerente'] ) ) : ?>
+							<li><span><?php _e('Gerente Comercial:' , LANG ); ?></span> <?= $options['contact_email_gerente'] ?></li>
+						<?php endif; ?>
+
+						<!-- Jefe de Operaciones -->
+						<?php if( isset( $options['contact_email'] ) && !empty( $options['contact_email'] ) ) : ?>
+							<li><span><?php _e('Jefe de Operaciones:' , LANG ); ?></span> <?= $options['contact_email'] ?></li>
+						<?php endif; ?>
+
+						<!-- Admin Documentaria -->
+						<?php if( isset( $options['contact_email_admin_doc'] ) && !empty( $options['contact_email_admin_doc'] ) ) : ?>
+							<li><span><?php _e('Admin Documentaria:' , LANG ); ?></span> <?= $options['contact_email_admin_doc'] ?></li>
+						<?php endif; ?>
+
+						<!-- Facturación y Cobranza -->
+						<?php if( isset( $options['contact_email_factura'] ) && !empty( $options['contact_email_factura'] ) ) : ?>
+							<li><span><?php _e('Facturación y Cobranza:' , LANG ); ?></span> <?= $options['contact_email_factura'] ?></li>
+						<?php endif; ?>
+
+						<!-- Logística -->
+						<?php if( isset( $options['contact_email_logistica'] ) && !empty( $options['contact_email_logistica'] ) ) : ?>
+							<li><span><?php _e('Logística:' , LANG ); ?></span> <?= $options['contact_email_logistica'] ?></li>
+						<?php endif; ?>
+
+
+					</ul> <!-- /. -->
+
+
+				</section> <!-- /.pageContacto__content -->
+
+			</div> <!-- /.col-xs-6 -->
+			<div class="col-xs-6">
+				<!-- Titulo  -->  <h2 class="text-uppercase sectionCommon__subtitle"><?php _e( 'llene nuestro formulario', LANG ); ?></h2>	
+
+				<!-- Formulario -->
+				<form id="form-contacto" action="" class="pageContacto__form" method="POST">
+
+					<!-- Nombre -->
+					<div class="pageContacto__form__group">
+						<label for="input_name" class="sr-only"></label>
+						<input type="text" name="input_name" placeholder="<?php _e( 'Su Nombre', LANG ); ?>" required />
+					</div> <!-- /.pageContacto__form__group -->
+
+					<!-- Email -->
+					<div class="pageContacto__form__group">
+						<label for="input_email" class="sr-only"></label>
+						<input type="email" name="input_email" placeholder="<?php _e( 'Su E-mail', LANG ); ?>" data-parsley-trigger="change" required="" data-parsley-type-message="Escribe un email válido"/>
+					</div> <!-- /.pageContacto__form__group -->
+
+					<!-- Texto -->
+					<div class="pageContacto__form__group">
+						<label for="input_email" class="sr-only"></label>
+						<textarea name="input_consulta" id="" placeholder="<?php _e( 'Su Mensaje', LANG ); ?>" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Necesitas más de 20 caracteres" data-parsley-validation-threshold="10"></textarea>
+					</div> <!-- /.pageContacto__form__group -->
+
+					<button type="submit" id="send-form" class="btn__send-form text-uppercase">
+						<?php _e( 'enviar' , LANG ); ?>
+					</button> <!-- /.btn__send-form -->
+
+				</form> <!-- /.pageContacto__form -->
+
+			</div> <!-- /.col-xs-6 -->
 		</div> <!-- /.row -->
 
-		<!-- Saltos de linea  -->  <br/><br/>
-		<!-- Mapa -->
-		<!-- Titulo -->
-		<h2 class="sectionCommon__subtitle pageEmpresa__subtitle text-uppercase">
-		<strong><?php _e( 'mapa' , LANG ); ?></strong>
-		</h2>			
-	</div> <!-- /.container -->
-	<!-- Mapa -->
-	<?php if( !empty($options['contact_mapa']) ) : ?>
-	<section class="pageContacto__mapa">
-		<div id="canvas-map"></div>
-	</section> <!-- /.pageContacto__mapa -->
-	<?php else: ?>
-		<div class="container">
-			<p><?php _e( 'Información no disponible actualmente' , LANG ); ?></p>
-		</div>
-	<?php endif; ?>
-</section> <!-- /.pageContacto  -->
+		<!-- Linea de Separacion --> <div class="line-separation--gray"></div>
 
-<!-- Incluir Banner de Servicios -->
+		<div class="row">
+			<div class="col-xs-12">
+				<!-- Titulo  -->  <h2 class="text-uppercase sectionCommon__subtitle"><?php _e( 'mapa', LANG ); ?></h2>
+
+				<!-- Mapa -->
+				<?php if( !empty($options['contact_mapa']) ) : ?>
+					<section class="pageContacto__mapa">
+						<div id="canvas-map"></div>
+					</section> <!-- /.pageContacto__mapa -->
+				<?php else: ?>
+					<p><?php _e( 'Información no disponible actualmente' , LANG ); ?></p>
+				<?php endif; ?>	
+
+			</div> <!-- /.col-xs-12 -->	
+		</div> <!-- /.row -->
+
+	</main> <!-- /.pageCommon__wrapper -->
+</div> <!-- /.container -->
+
+<!-- Incluir Seccion banner de servicios -->
 <?php include(locate_template('partials/banner-services.php')); ?>
 
 <!-- Incluir template de carousel clientes -->
@@ -157,11 +162,11 @@
 
 	      //infowindow
 	      var infowindow    = new google.maps.InfoWindow({
-	        content: <?= "'" . $options['contact_address'] . "'" ?>
+	        content: '<?= "Timco SAC" ?>'
 	      });
 
 	      //icono
-	      var icono = "<?= IMAGES ?>/icon/contacto_icono_mapa.jpg";
+	      //var icono = "<?= IMAGES ?>/icon/contacto_icono_mapa.jpg";
 
 	      //crear marcador
 	      marker = new google.maps.Marker({
@@ -169,8 +174,8 @@
 	        draggable: false,
 	        animation: google.maps.Animation.DROP,
 	        position : {lat: lat, lng: lng},
-	        title    : "<?php _e(bloginfo('name'),'damol-framework') ?>",
-	        icon     : icono
+	        title    : "<?php _e(bloginfo('name') , LANG )?>",
+	        //icon     : icono
 	      });
 	      //marker.addListener('click', toggleBounce);
 	      marker.addListener('click', function() {

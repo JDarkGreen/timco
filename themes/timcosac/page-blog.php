@@ -51,7 +51,7 @@
 					<article class="pageBlog__article <?= $class_article ?>">
 						<div class="row">
 							<div class="col-xs-5">
-								<figure>
+								<figure class="pageArticle__figure">
 									<?php //Imagen 
 										$feat_img = get_the_post_thumbnail( $articulo->ID , 'full' , array('class'=>'img-responsive') );
 										if( !empty($feat_img) ) : echo $feat_img; else:   
