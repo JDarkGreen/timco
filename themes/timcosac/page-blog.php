@@ -3,7 +3,7 @@
 <!-- Global Post -->
 <?php 
 	global $post; 
-	$options = get_option('constructec_custom_settings'); 
+	$options = get_option('timco_custom_settings'); 
 ?>
 
 <!-- Get Header -->
@@ -11,91 +11,82 @@
 
 <!-- Incluir banner de la página -->
 <?php  
-	$banner       = $post;
-	$banner_title = "blog";
+	$banner = $post;
 	include( locate_template("partials/banner-common-pages.php") );
 ?>
 
-<!-- Contenido Principal -->
-<section class="pageBlog">
-	<div class="container">
+<!-- CONTENEDOR COMUN -->
+<div class="container">
+	<main class="pageCommon__wrapper pageBlog">
 		<div class="row">
-			<!-- Seccion de Blogs -->
-			<div class="col-xs-12 col-sm-8">
+
+			<div class="col-xs-8">
+				<!-- Seccion Contenedora de Articulos -->
 				<section class="pageBlog__content">
-					<!-- Extraer los posts -->
-					<?php //el query
+					<?php  //Extraer los posts
 						$args = array(
 							'order'          => 'DESC',
 							'orderby'        => 'date',
 							'post_status'    => 'publish',
 							'post_type'      => 'post',
-							'posts_per_page' => -1,
+							'posts_per_type' => -1,
 						);
-						$query = new WP_Query( $args );
+						$articulos = get_posts( $args );
 
-						if( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post();
+						//Control 
+						$i = 0;
+
+						if( count($articulos) > 0 ) : 
+						foreach( $articulos as $articulo ) :
 					?>
-					<!-- Artículo flexible -->
-					<article class="pageBlog__content__article container-flex-center">
-						<!-- Imagen -->
-						<figure>
-						<?php if( has_post_thumbnail() ) : the_post_thumbnail('full',array('class'=>'img-fluid')); ?>
-						<?php else: ?>
-							<img src="<?= IMAGES ?>/no-disponible.jpg" alt="no-disponible" class="img-fluid" />
-						<?php endif; ?>	
-						</figure>
-						<!-- Extracto o contenido -->
-						<div class="pageBlog__content__article__text">
-							<h2 class="sectionCommon__subtitle text-uppercase">
-								<strong><?php _e( get_the_title() , LANG ); ?></strong>
-							</h2><!-- /.sectionCommon__subtitle --> <br/>
-							<!-- Contenido -->
-							<?= wp_trim_words( get_the_content() , 30 , '...' ) . "<br/>"; ?>
-							<!-- Botón ver más -->
-							<a href="<?php the_permalink() ?>" class="btn__show-more-post text-uppercase">
-								<?php _e('leer más' , LANG ); ?>
-							</a>
-						</div> <!-- /.pageBlog__content__article__text -->
-					</article> <!-- /.pageBlog__content__article -->
-					<?php endwhile; endif; wp_reset_postdata(); ?>
+					<!-- Articulo -->
+					<!-- Agregar Clases -->
+					<?php  
+						$class_article = "";
+						if( $i == 0 ) 
+							$class_article = "no-padding-top";
+						else if( $i == count($articulos) - 1 ) 
+							$class_article = "no-padding-bottom";
+					?>
+					<article class="pageBlog__article <?= $class_article ?>">
+						<div class="row">
+							<div class="col-xs-5">
+								<figure>
+									<?php //Imagen 
+										$feat_img = get_the_post_thumbnail( $articulo->ID , 'full' , array('class'=>'img-responsive') );
+										if( !empty($feat_img) ) : echo $feat_img; else:   
+									?>
+										<img src="" alt="" class="img-responsive" />
+									<?php endif; ?>
+								</figure>
+							</div> <!-- /.col-xs-5 -->
+							<div class="col-xs-7">
+								<!-- Titulo --> <h2 class="pageBlog__article__title text-uppercase"><?php _e( $articulo->post_title , LANG ); ?></h2>
+								<!-- Extracto --> <div class="pageBlog__article__text text-justify">
+									<?= apply_filters( 'the_content' , wp_trim_words( $articulo->post_content , 40 , "" )  ); ?>
+									<!-- Botón Leer Más -->
+									<a href="<?= $articulo->guid ?>" class="btn__read-more text-uppercase"><?php _e('leer más', LANG ); ?></a>
+								</div> <!-- /pageBlog__article__text -->
+							</div> <!-- /.col-xs-7 -->
+						</div> <!-- /.row -->
+					</article> <!-- /.pageBlog__article -->
+					<?php $i++; endforeach; else: echo "Actualizando Contenido"; endif; ?>
 				</section> <!-- /.pageBlog__content -->
+
 			</div> <!-- /.col-xs-8 -->
-			<!-- Aside de red social -->
-			<div class="col-xs-12 col-sm-4">
-				<!-- Facebook -->
-				<?php $link_facebook = $options['red_social_fb']; 
-					if( !empty($link_facebook) ) :
-				?>
-				<section class="pageInicio__miscelaneo__facebook">
-					<!-- Contebn -->
-					<div id="fb-root" class=""></div>
 
-					<!-- Script -->
-					<script>(function(d, s, id) {
-						var js, fjs = d.getElementsByTagName(s)[0];
-						if (d.getElementById(id)) return;
-						js = d.createElement(s); js.id = id;
-						js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.5";
-						fjs.parentNode.insertBefore(js, fjs);
-					}(document, 'script', 'facebook-jssdk'));</script>
-
-					<div class="fb-page" data-href="<?= $link_facebook ?>" data-tabs="timeline" data-small-header="false"  data-adapt-container-width="true" data-height="420" data-hide-cover="false" data-show-facepile="true">
-						<div class="fb-xfbml-parse-ignore">
-							<blockquote cite="<?= $link_facebook ?>">
-								<a href="<?= $link_facebook ?>"><?php bloginfo('name'); ?></a>
-							</blockquote>
-						</div>
-					</div>
-				</section> <!-- /.pageInicio__miscelaneo__facebook text-xs-center -->
-
-				<?php endif; ?>
+			<div class="col-xs-4">
+				<aside class="pageBlog__categories">
+					<!-- Incluir template categorias -->
+					<?php include( locate_template('partials/content-category-post.php') ) ?>
+				</aside><!-- /.pageBlog__categories -->
 			</div> <!-- /.col-xs-4 -->
-		</div> <!-- /.row -->
-	</div> <!-- /.container -->
-</section> <!-- /.pageBlog -->
 
-<!-- Incluir Banner de Servicios -->
+		</div> <!-- ./row -->
+	</main> <!-- /.pageCommon__wrapper -->
+</div> <!-- /.container -->
+
+<!-- Incluir Seccion banner de servicios -->
 <?php include(locate_template('partials/banner-services.php')); ?>
 
 <!-- Incluir template de carousel clientes -->

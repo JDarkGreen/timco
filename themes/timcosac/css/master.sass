@@ -650,7 +650,6 @@ body,html
 		margin   : 0 8px 5px 
 		max-width: 168px 
 
-
 /***************************************************************************************/
 /**------------------------------- PÁGINA FLOTA  -------------------------------------**/
 /***************************************************************************************/
@@ -715,6 +714,103 @@ body,html
 			img 
 				+scale( 1.2 )
 
+//Descripcion
+.pageFlota__description
+	font-size  : 20px
+	font-weight: 600
+	margin     : 0 auto 25px
+
+/***************************************************************************************/
+/**------------------------------- PÁGINA BLOG  -------------------------------------**/
+/***************************************************************************************/
+
+//Articulo preview
+.pageBlog__article
+	border-bottom: 2px solid $timco_line_gray
+	padding      : 39px 0
+	//variaciones
+	&.no-padding-top
+		padding-top: 0
+	&.no-padding-bottom
+		border-bottom : none
+		padding-bottom: 0
+
+	//Imagen
+	figure
+		overflow: hidden
+		img 
+			+transform( scale(1.0) translateZ(0) )
+			+transition( all 500ms ease )
+			backface-visibility: hidden
+			//Hover 
+			&:hover 
+				+scale( 1.2 )
+
+//Titulo
+.pageBlog__article__title
+	color      : $timco_red
+	font-size  : 1.125em /*18px*/
+	font-weight: 700
+	margin     : 0 auto 16px
+	position   : relative
+	&:before
+		background: $timco_red
+		bottom    : -5px
+		content   : ""
+		height    : 3px 
+		position  : absolute
+		width     : 82px
+
+//Contenido preview
+.pageBlog__article__text
+	font-size  : 14px
+	line-height: 1.3em
+	
+//Botón Leer Más
+.btn__read-more
+	background: $timco_red
+	color     : #fff
+	font-size : 12px
+	padding   : 7px 14px
+	+box-shadow( inset 0 0 0 0 $timco_red )
+	+transition( box-shadow 500ms ease-in )
+	&:hover, &:focus 
+		color          : white 
+		text-decoration: none 
+	&:hover 
+		color: $timco_red
+		+box-shadow( inset 150px 0 0 0 white )
+
+//Sidebar Categorias 
+.pageBlog__categories
+	//Tabs Accordeon
+	.panel-group
+		margin: 20px auto
+		//Menu 
+		.toggle-category__menu
+			list-style-type: none 
+			margin         : 0 auto 
+			padding        : 0 
+			li 
+				a 
+					color          : black 
+					text-decoration: none 
+					+transition( all 500ms ease )
+					//hover
+					&:hover
+						color: $timco_red
+
+
+//Titulo Sidebar Categorias
+.pageBlog__categories__title
+	+border-radius( 5px )
+	background    : $timco_red
+	color         : #fff
+	margin        : 0 auto
+	padding       : 3px 15px
+	text-transform: uppercase
+	font-size     : 20px
+	font-weight   : 600
 
 /***************************************************************************************/
 /**-------------------------------  MAIN FOOTER  -------------------------------------**/
