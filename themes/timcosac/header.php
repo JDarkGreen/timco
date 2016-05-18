@@ -30,10 +30,15 @@
 	<?php 
 		$options = get_option('timco_custom_settings'); 
 		global $post;
+
+		//Comprobar si esta desplegada la barra de Navegación
+		$admin_bar = is_admin_bar_showing() ? 'mainHeader__active' : '';
 	?>
 
+
+
 <!-- Header -->
-<header class="mainHeader sb-slide">
+<header class="mainHeader sb-slide <?= $admin_bar ?>">
 	<div class="container">
 		
 		<!-- Solo en version de escritorio -->
