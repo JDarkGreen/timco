@@ -194,7 +194,24 @@ var j = jQuery.noConflict();
 		/*|-------------------------------------------------------------|*/
 		/*|-----  VALIDADOR FORMULARIO.  ------|*/
 		/*|--------------------------------------------------------------|*/
-		j('#form-contacto').parsley();
+		j('#form-contacto')
+		.parsley()
+		.on('form:submit', function() {
+			//Subir el formulario mediante ajax
+			j.post( url + '/email/enviar.php' , 
+			{ 
+				nombre : j("#input_name").val(),
+				email  : j("#input_email").val(),
+				message: j("#input_consulta").val(),
+			})
+			.done(function(data){
+				alert( data );
+			})
+			.fail(function( data ) {
+			    alert( "error: " + JSON.stringify( data )   );
+			});
+		});
+
 
 	});
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
