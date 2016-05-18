@@ -20,7 +20,7 @@
 	<main class="pageCommon__wrapper pageContacto">
 
 		<div class="row">
-			<div class="col-xs-6">
+			<div class="col-xs-12 col-md-6">
 				<!-- Titulo  -->  <h2 class="text-uppercase sectionCommon__subtitle"><?php _e( 'atención al cliente', LANG ); ?></h2>
 
 				<div class="clearfix"></div>
@@ -80,7 +80,7 @@
 				</section> <!-- /.pageContacto__content -->
 
 			</div> <!-- /.col-xs-6 -->
-			<div class="col-xs-6">
+			<div class="col-xs-12 col-md-6">
 				<!-- Titulo  -->  <h2 class="text-uppercase sectionCommon__subtitle"><?php _e( 'llene nuestro formulario', LANG ); ?></h2>	
 
 				<!-- Formulario -->

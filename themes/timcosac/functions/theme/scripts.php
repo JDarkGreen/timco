@@ -31,7 +31,10 @@ function load_custom_scripts()
 
 	//google maps
 	wp_enqueue_script('google-maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCNMUy9phyQwIbQgX3VujkkoV26-LxjbG0');
-  	wp_enqueue_script('google-jsapi','https://www.google.com/jsapi'); 
+  	wp_enqueue_script('google-jsapi','https://www.google.com/jsapi');
+
+  	//cargar sbslidebar js 
+	wp_enqueue_script('slidebars', THEMEROOT . '/js/slidebars.min.js', array('jquery'), '0.10.3', true);	 	 
 
 	//script
 	wp_enqueue_script('custom_script', THEMEROOT . '/js/script.js', array('jquery'), false, true);

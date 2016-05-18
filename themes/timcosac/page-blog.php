@@ -20,7 +20,7 @@
 	<main class="pageCommon__wrapper pageBlog">
 		<div class="row">
 
-			<div class="col-xs-8">
+			<div class="col-xs-12 col-md-8">
 				<!-- Seccion Contenedora de Articulos -->
 				<section class="pageBlog__content">
 					<?php  //Extraer los posts
@@ -50,7 +50,7 @@
 					?>
 					<article class="pageBlog__article <?= $class_article ?>">
 						<div class="row">
-							<div class="col-xs-5">
+							<div class="col-xs-12 col-md-5">
 								<figure class="pageArticle__figure">
 									<?php //Imagen 
 										$feat_img = get_the_post_thumbnail( $articulo->ID , 'full' , array('class'=>'img-responsive') );
@@ -60,7 +60,7 @@
 									<?php endif; ?>
 								</figure>
 							</div> <!-- /.col-xs-5 -->
-							<div class="col-xs-7">
+							<div class="col-xs-12 col-md-7">
 								<!-- Titulo --> <h2 class="pageBlog__article__title text-uppercase"><?php _e( $articulo->post_title , LANG ); ?></h2>
 								<!-- Extracto --> <div class="pageBlog__article__text text-justify">
 									<?= apply_filters( 'the_content' , wp_trim_words( $articulo->post_content , 40 , "" )  ); ?>
@@ -75,7 +75,7 @@
 
 			</div> <!-- /.col-xs-8 -->
 
-			<div class="col-xs-4">
+			<div class="col-xs-4 hidden-xs">
 				<aside class="pageBlog__categories">
 					<!-- Incluir template categorias -->
 					<?php include( locate_template('partials/content-category-post.php') ) ?>

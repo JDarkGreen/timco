@@ -30,7 +30,7 @@
 			<div class="row">
 
 				<!-- SECCION DE CONTENEDORA DE INFORMACION -->
-				<div class="col-xs-8">
+				<div class="col-xs-12 col-md-8">
 
 					<!-- Información -->
 					<div class="pageServicio__text text-justify">
@@ -81,7 +81,7 @@
 				</div> <!-- /.col-xs-9 -->
 
 				<!-- ASIDE DE SERVICIOS -->
-				<div class="col-xs-4">
+				<div class="col-md-4 hidden-xs">
 					<aside class="pageServicio__sidebar">
 						<!-- Título --> <h2 class="text-uppercase pageCommon__title-sidebar">
 							<?php _e('servicios', LANG ); ?>

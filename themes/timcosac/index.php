@@ -69,7 +69,7 @@
 	<!-- Seccion Miscelanea -->
 	<div class="row">
 		
-		<div class="col-xs-8">
+		<div class="col-xs-12 col-md-8">
 			<section class="pageInicio__description">
 				<!-- Subtitulo --><h2 class="pageWrapper__subtitle text-uppercase">
 			<?php _e('timco transporte sac' , LANG ); ?> </h2>
@@ -77,7 +77,8 @@
 				<!-- Contenido -->
 				<section class="pageInicio__description__content">
 					<div class="row">
-						<div class="col-xs-5">
+
+						<div class="col-xs-12 col-md-5">
 							<?php //Extraer imagen de nosotros
 								$img_nosotros = $options['image_nosotros'];
 								if( !empty($img_nosotros) ) : ?>
@@ -87,7 +88,8 @@
 								endif; 
 							?>
 						</div> <!-- /. -->
-						<div class="col-xs-7">
+
+						<div class="col-xs-12 col-md-7">
 							<?php  //Extraer contenido de nosotros
 								$text_nosotros = $options['widget_nosotros'];
 								if( !empty( $text_nosotros ) ) :
@@ -101,6 +103,7 @@
 								endif;
 							?>
 						</div> <!-- /.col-xs-8 -->
+
 					</div> <!-- /.row -->
 
 					<!-- Linea de Separación  -->
@@ -124,7 +127,8 @@
 						?> 
 							<article> 
 									<div class="row">
-										<div class="col-xs-4">
+
+										<div class="col-xs-12 col-md-4">
 											<a href="<?= $blog->guid ?>">		
 												<figure>
 													<?php if( has_post_thumbnail( $blog->ID ) ) : ?>
@@ -133,7 +137,8 @@
 												</figure>
 											</a> 
 										</div> <!-- /.col-xs-4 -->
-										<div class="col-xs-8">
+
+										<div class="col-xs-12 col-md-8">
 											<!-- Titulo -->
 											<h2 class="pageInicio__blog__title"> <strong>
 												<?php _e( $blog->post_title , LANG ); ?> </strong></h2>
@@ -143,7 +148,7 @@
 													$text_excerpt = wp_trim_words( $blog->post_content , 35 , '...' );
 													echo apply_filters( 'the_content' , $text_excerpt );
 												?>
-												<a href="#" class="pageCommon__read-more"><?php _e('Leer Más...', LANG ); ?></a>
+												<a href="<?= $blog->guid; ?>" class="pageCommon__read-more"><?php _e('Leer Más...', LANG ); ?></a>
 											</div> <!-- /.pageInicio__blog__excerpt -->
 										</div> <!-- /.col-xs-8 -->
 									</div> <!-- /.row -->
@@ -156,7 +161,7 @@
 			</section> <!-- /.pageInicio__description -->
 		</div> <!-- /.col-xs-8 -->
 
-		<div class="col-xs-4">
+		<div class="col-xs-4 hidden-xs">
 			<section class="pageInicio__facebook">
 				<!-- Subtitulo --><h2 class="pageWrapper__subtitle text-uppercase">
 			<?php _e('facebook timco' , LANG ); ?> </h2>

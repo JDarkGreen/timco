@@ -40,7 +40,7 @@
 					<?php endif; ?>
 				</article> <!-- /.pageArticle__content -->
 			</div> <!-- /.col-xs-12 col-md-8 -->
-			<div class="col-xs-12 col-md-4">
+			<div class="col-md-4 hidden-xs">
 				<aside class="pageBlog__categories">
 					<!-- Incluir template categorias -->
 					<?php include( locate_template('partials/content-category-post.php') ) ?>

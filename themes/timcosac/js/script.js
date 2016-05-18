@@ -6,7 +6,32 @@ var j = jQuery.noConflict();
 	j(document).on('ready',function(){
 
 		/*|----------------------------------------------------------------------|*/
+		/*|-----  SLIDEBAR VERSION MOBILE  -----|*/
+		/*|----------------------------------------------------------------------|*/
+
+		var mySlidebars = new j.slidebars({
+			disableOver       : 568, // integer or false
+			hideControlClasses: true, // true or false
+			scrollLock        : false, // true or false
+			siteClose         : true, // true or false
+		});
+
+		//Eventos
+
+		//Abrir contenedor izquierda
+		j("#toggle-left-nav").on('click',function(){
+			mySlidebars.slidebars.toggle('left');
+		});
+
+		//Abrir contenedor derecha
+		j("#toggle-right-nav").on('click',function(){
+			mySlidebars.slidebars.toggle('right');
+		});
+		
+
+		/*|----------------------------------------------------------------------|*/
 		/*|-----  CAROUSEL HOME -----|*/
+		/*|----------------------------------------------------------------------|*/
 		var carousel_home = j("#carousel-home").carousel({
 			interval : 5000
 		});

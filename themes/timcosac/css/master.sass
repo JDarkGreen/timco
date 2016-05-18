@@ -207,6 +207,12 @@ body,html
 /***************************************************************************************/
 
 .mainHeader
+	background: white
+	left      : 0
+	position  : fixed
+	right     : 0
+	top       : 0
+	z-index   : 9
 
 //Logo
 .logo 
@@ -328,6 +334,14 @@ body,html
 						&:hover,&.current-menu-item, &.current_page_item
 							a 
 								color: $timco_red
+
+/***************************************************************************************/
+/**--------------------------  SLIDEBAR CONTENEDOR -----------------------------------**/
+/***************************************************************************************/
+
+//Sobreescribir Clases
+#sb-site
+	padding: 115px 0 0 0
 
 /***************************************************************************************/
 /**--------------------------  WRAPPER GENERAL ---------------------------------------**/
@@ -505,6 +519,10 @@ body,html
 	background: $timco_gray 
 	padding   : 14px 25px 
 	+border-radius( 5px )
+
+	//image
+	img 
+		margin: 0 auto 5px
 
 	//parrafos
 	p 
@@ -973,3 +991,139 @@ body,html
 	margin   : 20px auto 0
 	a 
 		color: white 
+
+/************************************************************************************/
+/*-- CLASES VERSION MOBILE ---------------------------------------------------------*/
+/************************************************************************************/
+
+//Header
+.mainHeader__mobile
+	display        : flex 
+	justify-content: center
+	padding        : 5px 0
+	//Icons
+	.icon-header
+		i
+			color    : $timco_red
+			font-size: 45px
+	//Logo
+	.logo 
+		max-width: 120px
+		padding  : 0
+
+/************************************************************************************/
+/*-- MEDIA QUERIES ---------------------------------------------------------*/
+/************************************************************************************/
+
+//480px
+@media ( max-width: 568px )
+
+	//Páginas Comunes
+	//Titulos Banner
+	.pageCommon__banner__title
+		font-size: 1em
+		top      : 30%
+		strong 
+			&:after 
+				height: 4px
+	
+	//Contenedor SLIDEBAR js 
+	#sb-site
+		padding: 4em 0 0 0
+
+	//Wrapper
+	.pageCommon__wrapper
+		padding: 33px 10px
+
+	//Navegacion Principal
+	.mainNav 
+		margin : 30px 0 
+		padding: 0
+		//before
+		&:before 
+			background: transparent 
+		//menu 
+		ul.main-menu 
+			li
+				display: block
+				padding: 0 
+				//submenu
+				ul.sub-menu
+					+opacity( 1 )
+					+transition( all 1s ease )
+					border       : 0 
+					max-height   : 0vmin 
+					overflow     : hidden
+					padding      : 0
+					position     : relative
+				//Hover and active 
+				&:hover, &.current-menu-ancestor , &.current-menu-parent
+					ul.sub-menu
+						border-bottom: 4px solid #fff
+						border-top   : 4px solid #fff
+						max-height   : 100vmin
+	
+	//Carousel Home
+	.pageInicio__slider 
+		.carousel-caption 
+			left: 15%
+			h3
+				font-size: 1em
+			p 
+				font-size: 1em
+			.right-align
+				right: 15%
+
+	//Carousel Servicios Home
+	.pageInicio__servicios 
+		.ContainerSlider__servicios 
+			.item 
+				min-height: 180px
+				.item__title
+					&:before
+						margin: 0 auto 5px
+
+	//Descripcion Service Home
+	.pageInicio__description__content
+		padding   : 14px 10px
+		p 
+			text-align: justify
+
+	//Página Nosotros
+	.pageNosotros__aptitudes
+		padding: 30px 15px
+		background: rgba( 0,0,0,.4 )
+
+	//Pagina Flota
+	.pageFlota__content 
+		.item-flota
+			width: 100%
+
+	//Página Blog
+	.pageBlog__article 
+		padding: 20px 0
+		.pageArticle__figure
+			margin: 0 auto 10px
+	
+	//Page Blog Categorias
+	.pageBlog__categories
+		margin : 30px 0
+		padding: 0 5px 
+
+	//Página Contacto
+	.pageContacto__content
+		margin    : 20px auto 
+		text-align: center
+		.paragraph__info 
+			span
+				display: block
+				width  : auto 
+
+	//Footer 
+	//Description , data , social 
+	.mainFooter__description, .mainFooter__data , .mainFooter__social
+		border    : 0
+		margin    : 0 auto 15px 
+		padding   : 0
+		text-align: center
+		width     : 100%

@@ -9,11 +9,11 @@
 				<!-- Seccion de Desacription -->
 				<div class="mainFooter__description">
 					<div class="row">
-						<div class="col-xs-4 text-center">
+						<div class="col-xs-12 col-md-4 text-center">
 							<!-- Logo --> <figure><img src="<?= IMAGES ?>/footer/logo_timco_blanco.png" alt="logo-timco" class="img-responsive center-block"></figure>
 							<!-- Span --> <span class=""><?php _e('Transporte Timco ' . date('Y') , LANG ); ?> </span>
 						</div> <!-- /.col-xs-4 -->
-						<div class="col-xs-8">
+						<div class="col-xs-12 col-md-8">
 							<div class="address">
 								<i class="fa fa-map-marker" aria-hidden="true"></i>
 							<?php
@@ -100,6 +100,8 @@
  
 		</div> <!-- /.container -->
 	</footer><!-- /.mainFooter -->
+
+	</div> <!-- /#sb-slidebar -->
 
 	<?php wp_footer(); ?>
 
