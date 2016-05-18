@@ -194,22 +194,24 @@ var j = jQuery.noConflict();
 		/*|-------------------------------------------------------------|*/
 		/*|-----  VALIDADOR FORMULARIO.  ------|*/
 		/*|--------------------------------------------------------------|*/
-		j('#form-contacto')
-		.parsley()
-		.on('form:submit', function() {
+
+		j('#form-contacto').parsley();
+
+		j(document).on('submit', j('#form-contacto') , function(e){
+			e.preventDefault();
 			//Subir el formulario mediante ajax
-			j.post( url + '/email/enviar.php' , 
+			j.post( url + '/email/enviar.php', 
 			{ 
 				nombre : j("#input_name").val(),
 				email  : j("#input_email").val(),
 				message: j("#input_consulta").val(),
-			})
-			.done(function(data){
+			},function(data){
 				alert( data );
-			})
-			.fail(function( data ) {
-			    alert( "error: " + JSON.stringify( data )   );
-			});
+
+				j("#input_name").val("");
+				j("#input_email").val("");
+				j("#input_consulta").val("");
+			});			
 		});
 
 
