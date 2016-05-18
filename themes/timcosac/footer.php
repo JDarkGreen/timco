@@ -92,6 +92,12 @@
 				
 			</section> <!-- /.mainFooter__content -->
 
+			<section class="mainFooter__develop text-center">
+				Desarrollado por <a target="_blank" href="http://www.ingenioart.com/">
+					Ingenioart.com
+				</a>
+			</section> <!-- /.mainFooter__develop -->
+ 
 		</div> <!-- /.container -->
 	</footer><!-- /.mainFooter -->
 
