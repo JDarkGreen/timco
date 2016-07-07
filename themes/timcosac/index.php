@@ -97,7 +97,7 @@
 
 								//Link de Nosotros
 							?>
-							<a href="#" class="pageCommon__read-more"><?php _e('Leer Más...', LANG ); ?></a>
+							<!--a href="#" class="pageCommon__read-more"><?php _e('Leer Más...', LANG ); ?></a-->
 							<?php
 								else: echo "Actualizando descripción";
 								endif;
