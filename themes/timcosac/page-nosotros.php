@@ -89,49 +89,49 @@
 					<div class="col-xs-12 col-md-6">
 
 						<!-- Mision -->
+						<?php if( isset( $options['text_mision'] ) && !empty($options['text_mision']) ) : ?>
 						<article class="pageNosotros__aptitudes__item">
 							<!-- Titulo --> <h2 class="text-uppercase sectionCommon__subtitle sectionCommon__subtitle--white">
 							<?php _e('misión' , LANG ); ?></h2>
 							<!-- Texto -->
-							<?php if( isset( $options['text_mision'] ) && !empty($options['text_mision']) ) : ?>
 								<?php 
 									$text_mision = $options['text_mision'];
 									echo apply_filters('the_content' , $text_mision ); 
-									else: _e( 'Actualizando Contenido' , LANG );
+								
 								?>
-							<?php endif; ?>						
 						</article> <!-- /.pageNosotros__aptitudes__item -->
+						<?php endif; ?>						
 
 						<!-- Vision -->
+						<?php if( isset( $options['text_vision'] ) && !empty($options['text_vision']) ) : ?>
 						<article class="pageNosotros__aptitudes__item">
 							<!-- Titulo --> <h2 class="text-uppercase sectionCommon__subtitle sectionCommon__subtitle--white">
 							<?php _e('visión' , LANG ); ?></h2>
 							<!-- Texto -->
-							<?php if( isset( $options['text_vision'] ) && !empty($options['text_vision']) ) : ?>
 								<?php 
 									$text_vision = $options['text_vision'];
 									echo apply_filters('the_content' , $text_vision ); 
-									else: _e( 'Actualizando Contenido' , LANG );
+								
 								?>
-							<?php endif; ?>						
 						</article> <!-- /.pageNosotros__aptitudes__item -->
+						<?php endif; ?>						
 
 					</div> <!-- /.col-xs-12 col-md-6 -->
-					<div class="col-xs-12 col-md-6">
+					<div class="col-xs-12">
 
 						<!-- Vision -->
-						<article class="pageNosotros__aptitudes__item pull-right">
+						<?php if( isset( $options['text_pilares'] ) && !empty($options['text_pilares']) ) : ?>
+						<article class="pageNosotros__aptitudes__item pull-left">
 							<!-- Titulo --> <h2 class="text-uppercase sectionCommon__subtitle sectionCommon__subtitle--white">
-							<?php _e('pilares estratégicos' , LANG ); ?></h2>
+							<?php _e('valores' , LANG ); ?></h2>
 							<!-- Texto -->
-							<?php if( isset( $options['text_pilares'] ) && !empty($options['text_pilares']) ) : ?>
 								<?php 
 									$text_pilares = $options['text_pilares'];
 									echo apply_filters('the_content' , $text_pilares ); 
-									else: _e( 'Actualizando Contenido' , LANG );
+								
 								?>
-							<?php endif; ?>						
 						</article> <!-- /.pageNosotros__aptitudes__item -->
+						<?php endif; ?>						
 
 						<!-- Limpiar Float --> <div class="clearfix"></div>
 

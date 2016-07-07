@@ -20,7 +20,15 @@
 <div class="container">
 	<main class="pageCommon__wrapper pageFlota">
 		<!-- Descripcion -->
-		<p class="pageFlota__description text-center"><?php _e( 'Contamos con una variedad de flota a tu servicio' , LANG ); ?></p>
+		<p class="pageFlota__description text-center">
+		<?php  
+			/**
+			* Encontramos la página de flota y obtenemos su contenido
+			*/
+			$page_flota = get_page_by_path("Nuestra flota");
+			_e( $page_flota->post_content , LANG );
+		?>	
+		</p>
 
 		<!-- Contenedor Flexible -->
 		<section class="pageFlota__content">

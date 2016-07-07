@@ -34,7 +34,16 @@
 
 					<!-- Información -->
 					<div class="pageServicio__text text-justify">
-						<?= apply_filters('the_content', $post->post_content ); ?>
+						
+						<?php  
+							/**
+							* Encontramos la página de servicios y obtenemos su contenido
+							*/
+							$page_services = get_page_by_path("servicios");
+							echo apply_filters("the_content" , $page_services->post_content );
+						?>
+
+						<?/*= apply_filters('the_content', $post->post_content ); */?>
 					</div> <!-- /.pageServicio__article__text -->
 
 					<!-- Galería de Imágenes -->

@@ -21,7 +21,15 @@
 		
 		<!-- Descripción -->
 		<section class="pageClientes__content">
-			<h2 class="text-center"><?php _e( 'Nuestra experiencia, calidad y compromiso de servicio nos permite contar con una amplia cartera de clientes. TIMCO una parte de cada uno de ellos:' , LANG ); ?></h2>
+			<h2 class="text-center">
+			<?php  
+				/**
+				* Encontramos la página de clientes y obtenemos su contenido
+				*/
+				$page_cliente = get_page_by_path("clientes");
+				_e( $page_cliente->post_content , LANG );
+			?>	
+			</h2>
 		</section> <!-- /.pageClientes__content -->
 		
 		<!-- Contenido Operadores lógicos -->

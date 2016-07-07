@@ -187,7 +187,7 @@
 					</div> <!-- /. fb-page-->
 				</section> <!-- /.container__facebook -->
 			<?php else: ?>
-				<p>Opcion no habilitada temporalmente</p>
+				<p class="text-xs-center">Opcion no habilitada temporalmente</p>
 			<?php endif; ?>
 			</section> <!-- /.pageInicio__description -->
 

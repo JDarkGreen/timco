@@ -78,7 +78,7 @@ function timco_customize_register($wp_customize) {
 		'type' => 'option'
 	));
 	$wp_customize->add_control('timco_custom_settings[text_pilares]', array(
-		'label'    => __('Escribe el texto PILARES ESTRATÉGICOS', LANG),
+		'label'    => __('Escribe el texto PILARES ESTRATÉGICOS ó VALORES', LANG),
 		'section'  => 'timco_mision_vision',
 		'settings' => 'timco_custom_settings[text_pilares]',
 		'type'     => 'textarea'
