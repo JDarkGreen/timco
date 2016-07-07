@@ -9,7 +9,9 @@
 
 <!-- Incluir banner de la página -->
 <?php  
-	$banner       = $post;
+	/* Buscar la página blog y setear el banner */
+	$page_blog    = get_page_by_path("blog");
+	$banner       = $page_blog;
 	$banner_title = "artículo";
 	include( locate_template("partials/banner-common-pages.php") );
 ?>

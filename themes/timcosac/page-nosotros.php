@@ -23,7 +23,9 @@
 			<!-- Titulo --> <h2 class="text-uppercase sectionCommon__subtitle">
 			<?php _e('quienes somos' , LANG ); ?></h2>
 
-			<div class="row container-flex align-content">
+			<!-- Separación --> <br />
+
+			<div class="row">
 				<div class="col-xs-12 col-md-6">
 					<!-- DESCRIPCION QUIENES SOMOS -->
 					<?php 
@@ -82,6 +84,8 @@
 					?>
 				<?php endif; ?>
 			</div> <!-- /.pageNosotros__text -->
+
+			<!-- Separación --><br />
 
 			<!-- Contenido Mision y Visión -->
 			<section class="pageNosotros__aptitudes">

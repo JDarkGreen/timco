@@ -70,7 +70,9 @@
 								</li>
 								<li>
 									<i class="fa fa-phone" aria-hidden="true"></i>
-									367 8067
+									<?php if( isset($options['contact_cel']) && !empty($options['contact_cel']) ) : echo $options['contact_cel'];
+										endif;
+									?>
 								</li>
 							</ul>
 						</div> <!-- /.mainHeader__info -->

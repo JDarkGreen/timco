@@ -965,12 +965,12 @@ body,html
 
 .mainFooter__data
 	border-right: 1px solid white
-	padding     : 0 20px 
+	padding     : 0 30px 
 	width       : 25%
 	//icons
 	i 
 		font-size : 20px 
-		margin    : 0 4px 0 0 
+		margin    : 0 4px 0 -30px 
 		text-align: center 
 		width     : 20px
 
@@ -1135,3 +1135,27 @@ body,html
 		padding   : 0
 		text-align: center
 		width     : 100%
+
+//481px to 1200px
+@media ( min-width: 568px ) and ( max-width: 1200px ) 
+
+	//MAIN HEADER
+	.mainHeader__info
+		//before background
+		&:before
+			width: 80vmax 
+		//slogan
+		p
+			font-size: 11px
+	
+	//NAVIGATION MAIN MENU 
+	.mainNav 
+		//before background
+		&:before
+			width: 80vmax
+		//mai menu
+		ul.main-menu
+			li
+				padding: 14px
+				a 
+					padding: 4px 0
