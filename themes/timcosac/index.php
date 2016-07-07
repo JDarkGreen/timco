@@ -72,7 +72,7 @@
 		<div class="col-xs-12 col-md-8">
 			<section class="pageInicio__description">
 				<!-- Subtitulo --><h2 class="pageWrapper__subtitle text-uppercase">
-			<?php _e('timco transporte sac' , LANG ); ?> </h2>
+			<?php _e('¡Bienvenido a Timco!' , LANG ); ?> </h2>
 			
 				<!-- Contenido -->
 				<section class="pageInicio__description__content">
