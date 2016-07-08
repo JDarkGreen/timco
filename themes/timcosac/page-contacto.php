@@ -43,7 +43,13 @@
 							$celulares = $options['contact_cel'];
 							$celulares = explode( "," , $celulares );
 
-							foreach( $celulares as $celular){ echo  $celular . " / "; }
+							//variable control para eliminar "/"
+							$i          = 0;
+							foreach( $celulares as $celular ){ 
+								$separation = $i == count($celulares)-1 ? "" : " / " ;
+								echo  $celular . $separation;
+								$i++;
+							} 
 						?>
 					</p>
 					<?php endif; ?>

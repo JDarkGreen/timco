@@ -8,7 +8,7 @@
 
 				<!-- Seccion de Desacription -->
 				<div class="mainFooter__description">
-					<div class="row">
+					<div class="row container-flex align-content">
 						<div class="col-xs-12 col-md-4 text-center">
 							<!-- Logo --> <figure><img src="<?= IMAGES ?>/footer/logo_timco_blanco.png" alt="logo-timco" class="img-responsive center-block"></figure>
 							<!-- Span --> <span class=""><?php _e('Transporte Timco ' . date('Y') , LANG ); ?> </span>
@@ -44,7 +44,16 @@
 						$celulares = explode( "," , $celulares );
 					?>
 						<p> <i class="fa fa-mobile" aria-hidden="true"></i>
-							Rpc: <?php foreach( $celulares as $celular){ echo  $celular . " / "; } ?>
+							Rpc: 
+							<?php 
+								//variable control para eliminar "/"
+								$i          = 0;
+								foreach( $celulares as $celular ){ 
+									$separation = $i == count($celulares)-1 ? "" : " / " ;
+									echo  $celular . $separation;
+									$i++;
+								} 
+							?>
 						</p>
 					<?php endif; ?>
 					<!-- Mail -->

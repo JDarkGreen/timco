@@ -250,5 +250,67 @@ function cd_banner_text_save( $post_id )
     update_post_meta( $post_id, 'banner_text_check', $chk );
 }
 
+/*|-------------------------------------------------------------------------|*/
+/*|----   METABOX AGREGAR CAMPO A TAXONOMIA CATEGORIA CLIENTE  -------------|*/
+/*|-------------------------------------------------------------------------|*/
+
+//Este metabox crea un campo para ordenar las taxonomia categoria de cliente
+
+function theme_tax_cat_client_add_field() {
+?>
+	<div class="form-field">
+		<label for="term_meta[custom_term_meta]"><?php _e( 'Ordemiento Taxonomía', LANG ); ?></label>
+		<input type="text" name="term_meta[custom_term_meta]" id="term_meta[custom_term_meta]" style="max-width: 40px;" value="" />
+		<p class="description"><?php _e( 'Ingresa un valor numérico para ordenar la taxonomía en orden ascendente:', LANG ); ?></p>
+	</div>
+
+<?php
+} // end of function
+
+//Agregamos la accion el primer parametro agrega la taxonomia segun el tipo
+//ejemplo si tu quieres agregar taxonomia genres sería
+// add_action( 'genres_add_form_fields', 'pippin_taxonomy_add_new_meta_field', 10, 2 );
+add_action( 'cliente_category_add_form_fields', 'theme_tax_cat_client_add_field', 10, 2 );
+
+//Agregamos Funcion para LA PAGINA DE EDICION DE ESTA TAXONOMIA
+function theme_tax_cat_client_edit_field($term) {
+ 
+	// put the term ID into a variable
+	$t_id = $term->term_id;
+ 
+	// retrieve the existing value(s) for this meta field. This returns an array
+	$term_meta = get_option( "taxonomy_$t_id" ); ?>
+	<tr class="form-field">
+	<th scope="row" valign="top"><label for="term_meta[custom_term_meta]"><?php _e( 'Ordemiento Taxonomía', LANG ); ?></label></th>
+		<td>
+			<input type="text" name="term_meta[custom_term_meta]" id="term_meta[custom_term_meta]" value="<?php echo esc_attr( $term_meta['custom_term_meta'] ) ? esc_attr( $term_meta['custom_term_meta'] ) : ''; ?>" style="max-width: 40px;" />
+			<p class="description"><?php _e( 'Ingresa un valor numérico para ordenar la taxonomía en orden ascendente:', LANG  ); ?></p>
+		</td>
+	</tr>
+<?php
+}
+add_action( 'cliente_category_edit_form_fields', 'theme_tax_cat_client_edit_field', 10, 2 );
+
+//Guardamos EL VALOR ANTERIORMENTE SETEADO
+function save_theme_tax_cat_client( $term_id ) {
+	if ( isset( $_POST['term_meta'] ) ) {
+		$t_id = $term_id;
+		$term_meta = get_option( "taxonomy_$t_id" );
+		$cat_keys  = array_keys( $_POST['term_meta'] );
+		foreach ( $cat_keys as $key ) {
+			if ( isset ( $_POST['term_meta'][$key] ) ) {
+				$term_meta[$key] = $_POST['term_meta'][$key];
+			}
+		}
+		// Save the option array.
+		update_option( "taxonomy_$t_id", $term_meta );
+	}
+}  
+//Ejemplo si fuera la taxonomia genre
+//add_action( 'edited_genres', 'save_taxonomy_custom_meta', 10, 2 );  
+//add_action( 'create_genres', 'save_taxonomy_custom_meta', 10, 2 );
+add_action( 'edited_cliente_category', 'save_theme_tax_cat_client', 10, 2 );  
+add_action( 'create_cliente_category', 'save_theme_tax_cat_client', 10, 2 );
+
 
 ?>
