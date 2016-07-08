@@ -39,10 +39,12 @@
 					<?php endif; ?>
 					<!-- Celular -->
 					<?php if( isset($options['contact_cel']) && !empty($options['contact_cel']) ) :
-						$cel = $options['contact_cel'];
+						/* Extraemos la cadena celular y lo convertimos en un arreglo */
+						$celulares = $options['contact_cel'];
+						$celulares = explode( "," , $celulares );
 					?>
 						<p> <i class="fa fa-mobile" aria-hidden="true"></i>
-							<?= $cel ?>
+							Rpc: <?php foreach( $celulares as $celular){ echo  $celular . " / "; } ?>
 						</p>
 					<?php endif; ?>
 					<!-- Mail -->

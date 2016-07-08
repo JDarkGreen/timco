@@ -35,10 +35,16 @@
 					</p>
 					<?php endif; ?>
 
-					<!-- Nextel --> 
+					<!-- RPC --> 
 					<?php if( isset( $options['contact_cel'] ) && !empty( $options['contact_cel'] ) ) : ?>
-					<p class="paragraph__info"><span><?php _e('Nextel:' , LANG ); ?></span>
-						<?= $options['contact_cel']; ?>
+					<p class="paragraph__info"><span><?php _e('RPC:' , LANG ); ?></span>
+						<?php 
+							/* Extraemos la cadena celular y lo convertimos en un arreglo */
+							$celulares = $options['contact_cel'];
+							$celulares = explode( "," , $celulares );
+
+							foreach( $celulares as $celular){ echo  $celular . " / "; }
+						?>
 					</p>
 					<?php endif; ?>
 					
@@ -73,9 +79,16 @@
 							<li><span><?php _e('Logística:' , LANG ); ?></span> <?= $options['contact_email_logistica'] ?></li>
 						<?php endif; ?>
 
-
 					</ul> <!-- /. -->
 
+					<!-- Separación --> <br/>
+
+					<!-- Sección Encuéntranos -->
+					<p class="paragraph__info"><span><?php _e('Encuéntrenos:' , LANG ); ?></span></p>
+
+					<!-- Si existe la dirección y no está vacía -->
+					<?php if( isset($options['contact_address']) && !empty($options['contact_address']) ) : echo $options['contact_address']; ?>
+					<?php endif; ?>
 
 				</section> <!-- /.pageContacto__content -->
 

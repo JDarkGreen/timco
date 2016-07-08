@@ -251,5 +251,4 @@ function cd_banner_text_save( $post_id )
 }
 
 
-
 ?>

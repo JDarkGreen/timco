@@ -31,132 +31,54 @@
 			?>	
 			</h2>
 		</section> <!-- /.pageClientes__content -->
-		
-		<!-- Contenido Operadores lógicos -->
+
+		<?php  
+			/**
+			* Obtenemos todas los terminos de la taxonomía cliente category
+			*/
+			$terms_cat_cliente = get_terms( array(
+				'taxonomy'   => 'cliente_category',
+				'hide_empty' => true,
+			));
+
+			/* Hacemos el recorrido por cada una de estas taxonomías */
+			if( !empty( $terms_cat_cliente) ) : foreach( $terms_cat_cliente as $cat_cliente ) :
+		?>
+		<!-- Contenido de taxonomía -->
 		<section class="pageClientes__content">
-			<h2 class="pageClientes__subtitle text-center"><strong> <?php _e( 'Operadores Logísticos' , LANG ); ?> </strong> </h2>
-			<!-- Imagenes -->
+			<!-- Titulo --> <h2 class="pageClientes__subtitle text-center"><strong> <?php _e( $cat_cliente->name , LANG ); ?> </strong> </h2>
+
+			<!-- Imagenes de Logos según esta taxonomía -->
 			<section class="pageClientes__clientes">
-				<?php //Argumentos operadores logisticos
+				<?php //Argumentos segun tipo de termino o categoria de cliente
 					$args = array(
 						'post_status'    => 'publish',
 						'post_type'      => 'cliente',
 						'posts_per_page' => -1,
+						'order'          => 'ASC',
+						'orderby'        => 'menu_order',
 						'tax_query'      => array(
 							array(
 								'taxonomy'       => 'cliente_category',
 								'field'          => 'slug',
-								'terms'          => 'operadores-logisticos',
+								'terms'          => $cat_cliente->slug,
 							),
 						),
 					);  
-					$operadores = get_posts( $args );
-					foreach( $operadores as $operador ) : 
+					$cliente_cats = get_posts( $args );
+					foreach( $cliente_cats as $cliente_cat ) : 
 
-					$img = get_the_post_thumbnail( $operador->ID , 'full' , array('class'=>'img-responsive') );
+					$img = get_the_post_thumbnail( $cliente_cat->ID , 'full' , array('class'=>'img-responsive') );
 
 					if( !empty($img) ) : 
 				?>
 					<article class="item"><?= $img ?> </article> <!-- /.item -->
 				<?php else: echo "Not Image" ; endif; endforeach; ?>
-			</section> <!-- /.pageClientes__clientes -->
-		</section> <!-- /.pageClientes__content -->
-		
-		<!-- Contenido Productoras y Comercialización -->
-		<section class="pageClientes__content">
-			<h2 class="pageClientes__subtitle text-center"> <strong>
-				<?php _e( 'Productoras y Comercialización' , LANG ); ?> </strong>
-			</h2>
-				
-			<!-- Imagenes -->
-			<section class="pageClientes__clientes">
-				<?php //Argumentos operadores logisticos
-					$args = array(
-						'post_status'    => 'publish',
-						'post_type'      => 'cliente',
-						'posts_per_page' => -1,
-						'tax_query'      => array(
-							array(
-								'taxonomy'       => 'cliente_category',
-								'field'          => 'slug',
-								'terms'          => 'productoras-y-comercializacion',
-							),
-						),
-					);  
-					$operadores = get_posts( $args );
-					foreach( $operadores as $operador ) : 
+			</section> <!-- /.pageClientes__clientes -->	
 
-					$img = get_the_post_thumbnail( $operador->ID , 'full' , array('class'=>'img-responsive') );
+		</section> <!-- /pageClientes__content  - fin de sección -->		
 
-					if( !empty($img) ) : 
-				?>
-					<article class="item"><?= $img ?> </article> <!-- /.item -->
-				<?php else: echo "Not Image" ; endif; endforeach; ?>
-			</section> <!-- /.pageClientes__clientes -->
-		</section> <!-- /.pageClientes__content -->
-		
-		<!-- Contenido Agencia de Aduanas -->
-		<section class="pageClientes__content">
-			<h2 class="pageClientes__subtitle text-center"> <strong>
-				<?php _e( 'Agencia de Aduanas' , LANG ); ?> </strong> </h2>
-			<!-- Imagenes -->
-			<section class="pageClientes__clientes">
-				<?php //Argumentos operadores logisticos
-					$args = array(
-						'post_status'    => 'publish',
-						'post_type'      => 'cliente',
-						'posts_per_page' => -1,
-						'tax_query'      => array(
-							array(
-								'taxonomy'       => 'cliente_category',
-								'field'          => 'slug',
-								'terms'          => 'agencia-de-aduanas',
-							),
-						),
-					);  
-					$operadores = get_posts( $args );
-					foreach( $operadores as $operador ) : 
-
-					$img = get_the_post_thumbnail( $operador->ID , 'full' , array('class'=>'img-responsive') );
-
-					if( !empty($img) ) : 
-				?>
-					<article class="item"><?= $img ?> </article> <!-- /.item -->
-				<?php else: echo "Not Image" ; endif; endforeach; ?>
-			</section> <!-- /.pageClientes__clientes -->
-		</section> <!-- /.pageClientes__content -->	
-
-		<!-- Contenido Terminales Aduaneros -->
-		<section class="pageClientes__content">
-			<h2 class="pageClientes__subtitle text-center"> <strong>
-				<?php _e( 'Terminales Aduaneros' , LANG ); ?> </strong>
-			</h2>
-			<!-- Imagenes -->
-			<section class="pageClientes__clientes">
-				<?php //Argumentos operadores logisticos
-					$args = array(
-						'post_status'    => 'publish',
-						'post_type'      => 'cliente',
-						'posts_per_page' => -1,
-						'tax_query'      => array(
-							array(
-								'taxonomy'       => 'cliente_category',
-								'field'          => 'slug',
-								'terms'          => 'terminales-aduaneros',
-							),
-						),
-					);  
-					$operadores = get_posts( $args );
-					foreach( $operadores as $operador ) : 
-
-					$img = get_the_post_thumbnail( $operador->ID , 'full' , array('class'=>'img-responsive') );
-
-					if( !empty($img) ) : 
-				?>
-					<article class="item"><?= $img ?> </article> <!-- /.item -->
-				<?php else: echo "Not Image" ; endif; endforeach; ?>
-			</section> <!-- /.pageClientes__clientes -->
-		</section> <!-- /.pageClientes__content -->
+		<?php endforeach; endif; ?>
 
 	</main> <!-- /.pageClientes -->
 </div> <!-- /.container -->

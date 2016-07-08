@@ -64,14 +64,33 @@
 							<!-- Slogan --> <p><em>Soluciones para tu negocio</em></p>
 							<!-- Lista de Informacion -->
 							<ul class="list-inline">
+								<!-- Email -->
+								<?php if( isset($options['contact_email']) && !empty($options['contact_email']) ) : ?>
 								<li>
 									<i class="fa fa-envelope" aria-hidden="true"></i>
-									operaciones@timcosac.pe
+									<?= $options['contact_email']; ?>
 								</li>
+								<?php endif; ?>
 								<li>
 									<i class="fa fa-phone" aria-hidden="true"></i>
-									<?php if( isset($options['contact_cel']) && !empty($options['contact_cel']) ) : echo $options['contact_cel'];
-										endif;
+
+									<?php  
+										/* Vamos a extraer el primer teléfono y el primer celular */
+
+										//Telefono
+										$telefonos = $options['contact_tel'];
+										$telefonos = explode( "," , $telefonos );
+										$telefono  = $telefonos[0];
+										
+										//Celular
+										$celulares = $options['contact_cel'];
+										$celulares = explode( "," , $celulares );
+										$celular   = $celulares[0];
+
+										//Mostrar telefono si no está vacio
+										echo !empty($telefono) ? $telefono : "";
+										//Mostrar celular si no está vacio
+										echo !empty($celular) ? " / Rpc: " . $celular : "";
 									?>
 								</li>
 							</ul>
