@@ -30,7 +30,7 @@
 						'orderby'        => 'menu_order',
 						'post_status'    => 'publish',
 						'post_type'      => 'servicio',
-						'posts_per_type' => -1,
+						'posts_per_page' => -1,
 					);
 					$servicios = get_posts( $args );
 

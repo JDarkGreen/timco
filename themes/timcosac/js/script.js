@@ -116,7 +116,7 @@ var j = jQuery.noConflict();
 		carousel_home_service.owlCarousel({
 			items          : 4,
 			lazyLoad       : false,
-			loop           : true,
+			loop           : false,
 			margin         : 20,
 			nav            : false,
 			autoplay       : true,
