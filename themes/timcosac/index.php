@@ -37,9 +37,12 @@
 					foreach( $servicios as $servicio ) :
 				?>
 					<article class="item">
-						<figure>
-							<?= get_the_post_thumbnail( $servicio->ID , 'full', array('class'=>'img-responsive') ); ?>
-						</figure><!-- /fihure -->
+						<!-- Link to item -->
+						<a href="<?= get_permalink( $servicio->ID ); ?>">
+							<figure>
+								<?= get_the_post_thumbnail( $servicio->ID , 'full', array('class'=>'img-responsive') ); ?>
+							</figure><!-- /fihure -->
+						</a> <!-- /.end link -->
 						<!-- Titulo -->
 						<h3 class="item__title text-center text-uppercase container-flex">
 							<?php
