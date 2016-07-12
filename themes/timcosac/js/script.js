@@ -10,7 +10,7 @@ var j = jQuery.noConflict();
 		/*|----------------------------------------------------------------------|*/
 
 		var mySlidebars = new j.slidebars({
-			disableOver       : 568, // integer or false
+			disableOver       : 767, // integer or false
 			hideControlClasses: true, // true or false
 			scrollLock        : false, // true or false
 			siteClose         : true, // true or false
@@ -116,7 +116,7 @@ var j = jQuery.noConflict();
 		carousel_home_service.owlCarousel({
 			items          : 4,
 			lazyLoad       : false,
-			loop           : false,
+			loop           : true,
 			margin         : 20,
 			nav            : false,
 			autoplay       : true,

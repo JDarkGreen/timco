@@ -39,7 +39,7 @@
 
 <!-- Header -->
 <header class="mainHeader sb-slide <?= $admin_bar ?>">
-	<div class="container">
+	<div class="mainHeader__container">
 		
 		<!-- Solo en version de escritorio -->
 		<div class="row hidden-xs">

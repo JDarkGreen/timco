@@ -12,7 +12,7 @@
 						'orderby'        => 'menu_order',
 						'post_status'    => 'publish',
 						'post_type'      => 'cliente',
-						'posts_per_type' => -1,
+						'posts_per_page' => -1,
 					);
 					$query = new WP_Query( $args );
 					if( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post();
