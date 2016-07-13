@@ -65,9 +65,9 @@
 							<li><span><?php _e('Gerente Comercial:' , LANG ); ?></span> <?= $options['contact_email_gerente'] ?></li>
 						<?php endif; ?>
 
-						<!-- Jefe de Operaciones -->
-						<?php if( isset( $options['contact_email'] ) && !empty( $options['contact_email'] ) ) : ?>
-							<li><span><?php _e('Jefe de Operaciones:' , LANG ); ?></span> <?= $options['contact_email'] ?></li>
+						<!-- Gerente de Operaciones -->
+						<?php if( isset( $options['contact_email_operaciones'] ) && !empty( $options['contact_email_operaciones'] ) ) : ?>
+							<li><span><?php _e('Gerente de Operaciones:' , LANG ); ?></span> <?= $options['contact_email_operaciones'] ?></li>
 						<?php endif; ?>
 
 						<!-- Admin Documentaria -->

@@ -170,6 +170,19 @@ function timco_customize_register($wp_customize) {
 		'section'  => 'timco_contact_email',
 		'settings' => 'timco_custom_settings[contact_email_gerente]',
 		'type'     => 'text'
+	));	
+
+	//Email Gerente Operaciones
+	$wp_customize->add_setting('timco_custom_settings[contact_email_operaciones]', array(
+		'default' => '',
+		'type' => 'option'
+	));
+	
+	$wp_customize->add_control('timco_custom_settings[contact_email_operaciones]', array(
+		'label'    => __('Email Gerente Operaciones:', LANG),
+		'section'  => 'timco_contact_email',
+		'settings' => 'timco_custom_settings[contact_email_operaciones]',
+		'type'     => 'text'
 	));
 
 	//Email Administración documentaria
