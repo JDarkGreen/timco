@@ -1,6 +1,44 @@
 
 var j = jQuery.noConflict();
 
+
+/*|----------------------------------------------------------------------|*/
+/*|-----  CAROUSEL ARTICULOS - SECCIONES GENERALES  ------|*/
+/*|----------------------------------------------------------------------|*/
+function carouselArticlesVertical()
+{
+
+	if( j(".js-carousel-vertical").length )
+	{
+		j(".js-carousel-vertical").each(function(){
+			/* Carousel */
+			var current = j(this);
+			/* Velocidad */
+			var Speed   = current.attr('data-speed') !== null && typeof(current.attr('data-speed') ) !== "undefined" ? current.attr('data-speed') : 1500;
+			/* Visibilidad */
+			var ItemsVisible = current.attr('data-items') !== null && typeof(current.attr('data-items') ) !== "undefined" ? current.attr('data-items') : 3;
+			
+			/* Item verticales u horizontales */
+			var OrientacionItem = true;
+
+  			current.slick({
+				adaptiveHeight: true,
+				arrows        : false,
+				autoplay      : true,
+				autoplaySpeed : 2500,
+				infinite      : true,
+				pauseOnHover  : false,
+				slidesToScroll: 1,
+				slidesToShow  : parseInt( ItemsVisible ),
+				speed         : parseInt( Speed ),
+				vertical      : Boolean( OrientacionItem ),
+			});
+
+		});
+	}
+}
+
+
 (function($){
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 	j(document).on('ready',function(){
@@ -216,6 +254,11 @@ var j = jQuery.noConflict();
 			'transitionOut':	'elastic',
 		});
 
+		/*|----------------------------------------------------------------------|*/
+		/*|-- Llamar a funcion de Carousel Vertical de Artículos ----------------|*/
+		/*|----------------------------------------------------------------------|*/
+		carouselArticlesVertical();
+
 		/*|-------------------------------------------------------------|*/
 		/*|-----  VALIDADOR FORMULARIO.  ------|*/
 		/*|--------------------------------------------------------------|*/
@@ -239,7 +282,19 @@ var j = jQuery.noConflict();
 			});			
 		});
 
+	});
+
+
+	/******************  EVENTOS AL HACER RESIZE WINDOWS *********************/
+
+	j(window).on("resize", function(e){
+
+		/*|----------------------------------------------------------------------|*/
+		/*|-- Llamar a funcion de Carousel Vertical de Artículos ----------------|*/
+		/*|----------------------------------------------------------------------|*/
+		carouselArticlesVertical();
 
 	});
+
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 })(jQuery);

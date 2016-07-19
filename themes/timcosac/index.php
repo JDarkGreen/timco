@@ -116,47 +116,68 @@
 					<section class="pageInicio__blog">
 						<!-- Subtitulo --><h2 class="pageWrapper__subtitle text-uppercase">
 						<?php _e('blog timco' , LANG ); ?> </h2>
-						<!--  -->
-						<?php  //2 ultimas entradas al azar
-							$args = array(
-								'order'          => 'DESC',
-								'orderby'        => 'rand',
-								'post_status'    => 'publish',
-								'post_type'      => 'post',
-								'posts_per_type' => 2,
-							);
-							$blogs = get_posts( $args );
-							foreach( $blogs as $blog ) : 
-						?> 
-							<article> 
-									<div class="row">
 
-										<div class="col-xs-12 col-md-4">
-											<a href="<?= $blog->guid ?>">		
-												<figure>
-													<?php if( has_post_thumbnail( $blog->ID ) ) : ?>
-														<?= get_the_post_thumbnail( $blog->ID, 'full', array('class'=>'img-responsive') );  ?>
-													<?php endif; ?>
-												</figure>
-											</a> 
-										</div> <!-- /.col-xs-4 -->
+						<!-- Limpiar float --> <div class="clearfix"></div>
 
-										<div class="col-xs-12 col-md-8">
-											<!-- Titulo -->
-											<h2 class="pageInicio__blog__title"> <strong>
-												<?php _e( $blog->post_title , LANG ); ?> </strong></h2>
-											<!-- Extracto -->
-											<div class="pageInicio__blog__excerpt">
-												<?php 
-													$text_excerpt = wp_trim_words( $blog->post_content , 35 , '...' );
-													echo apply_filters( 'the_content' , $text_excerpt );
-												?>
-												<a href="<?= $blog->guid; ?>" class="pageCommon__read-more"><?php _e('Leer Más...', LANG ); ?></a>
-											</div> <!-- /.pageInicio__blog__excerpt -->
-										</div> <!-- /.col-xs-8 -->
-									</div> <!-- /.row -->
-							</article> <!-- /.article -->
-						<?php endforeach; ?>
+						<?php 
+						/* Carousel vertical 
+						* data-speed = default 1500 [number]
+						* data-items = default 3 [number]
+						*/ 
+						?>
+						<div id="carousel-articles" class="js-carousel-vertical" data-items="2" >
+
+							<!--  -->
+							<?php  //6 ultimas entradas al azar
+								$args = array(
+									'order'          => 'DESC',
+									'orderby'        => 'modified',
+									'post_status'    => 'publish',
+									'post_type'      => 'post',
+									'posts_per_page' => 6,
+								);
+								$blogs = get_posts( $args );
+								foreach( $blogs as $blog ) : 
+							?> 
+								<div class="carousel-item">
+									<article> 
+										<div class="">
+											
+											<!-- Imagen -->
+											<div class="col-xs-12 col-md-4">
+												<a href="<?= $blog->guid ?>">		
+													<figure>
+														<?php if( has_post_thumbnail( $blog->ID ) ) : ?>
+															<?= get_the_post_thumbnail( $blog->ID, 'full', array('class'=>'img-responsive') );  ?>
+														<?php endif; ?>
+													</figure>
+												</a> 
+											</div> <!-- /.col-xs-4 -->
+											
+											<!-- Contenido -->
+											<div class="col-xs-12 col-md-8">
+												<!-- Titulo -->
+												<h2 class="pageInicio__blog__title"> <strong>
+													<?php _e( $blog->post_title , LANG ); ?> </strong></h2>
+												<!-- Extracto -->
+												<div class="pageInicio__blog__excerpt">
+													<?php 
+														$text_excerpt = wp_trim_words( $blog->post_content , 35 , '...' );
+														echo apply_filters( 'the_content' , $text_excerpt );
+													?>
+													<a href="<?= $blog->guid; ?>" class="pageCommon__read-more"><?php _e('Leer Más...', LANG ); ?></a>
+												</div> <!-- /.pageInicio__blog__excerpt -->
+											</div> <!-- /.col-xs-8 -->
+
+											<div class="clearfix"></div>
+
+										</div> <!-- /.row -->
+									</article> <!-- /article -->
+								</div> <!-- /.carousel-item -->
+							<?php endforeach; ?>
+
+						</div> <!-- /end of carousel vertical -->
+
 					</section> <!-- /.pageInicio__blog -->
 
 				</section> <!-- /.pageInicio__description__content-->

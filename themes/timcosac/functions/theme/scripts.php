@@ -10,8 +10,8 @@ function load_custom_scripts()
    wp_register_script('jquery', "https://code.jquery.com/jquery-2.2.3.min.js", false, null);
    wp_enqueue_script('jquery');
 
-	//jsCarousellite 
-	wp_enqueue_script('jscarousel', THEMEROOT . '/js/jquery.jcarousellite.min.js', array('jquery'), false , true);
+	/* slick carousel */
+	wp_enqueue_script('slick', THEMEROOT . '/js/slick.min.js', array('jquery'), '1.6.0' , true);
 
 	//owl carousel /
 	wp_enqueue_script('owl-carousel', THEMEROOT . '/js/owl.carousel.min.js', array('jquery'), false , true);

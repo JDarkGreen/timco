@@ -29,7 +29,7 @@
 							'orderby'        => 'date',
 							'post_status'    => 'publish',
 							'post_type'      => 'post',
-							'posts_per_type' => -1,
+							'posts_per_page' => -1,
 						);
 						$articulos = get_posts( $args );
 
